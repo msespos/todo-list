@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/msespos/todo-list/issues"
   },
-  "homepage": "https://github.com/msespos/todo-list#readme"
+  "homepage": "https://github.com/msespos/todo-list#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
 }

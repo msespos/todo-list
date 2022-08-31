@@ -1,1 +1,3 @@
-console.log("Hello World!");
+import { makeFirstTodo } from './todoBuilder';
+
+makeFirstTodo();

@@ -16,7 +16,27 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todoBuilder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todoBuilder */ \"./src/todoBuilder.js\");\n\n\n(0,_todoBuilder__WEBPACK_IMPORTED_MODULE_0__.makeFirstTodo)();\n\nconst modal = document.querySelector(\".modal\");\nconst trigger = document.querySelector(\".trigger\");\nconst closeButton = document.querySelector(\".close-button\");\n\nconst toggleModal = () => {\n  modal.classList.toggle(\"show-modal\");\n}\n\nconst windowOnClick = (event) => {\n  if (event.target === modal) {\n    toggleModal();\n  }\n}\n\ntrigger.addEventListener(\"click\", toggleModal);\ncloseButton.addEventListener(\"click\", toggleModal);\nwindow.addEventListener(\"click\", windowOnClick);\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todoBuilder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todoBuilder */ \"./src/todoBuilder.js\");\n/* harmony import */ var _modalLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modalLayout */ \"./src/modalLayout.js\");\n/* harmony import */ var _modalHandlers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modalHandlers */ \"./src/modalHandlers.js\");\n\n\n\n\n(0,_todoBuilder__WEBPACK_IMPORTED_MODULE_0__.makeFirstTodo)();\n\nconst div = document.getElementById(\"content\");\ndiv.appendChild((0,_modalLayout__WEBPACK_IMPORTED_MODULE_1__.modalLayout)());\n\n(0,_modalHandlers__WEBPACK_IMPORTED_MODULE_2__.modalHandlers)();\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modalHandlers.js":
+/*!******************************!*\
+  !*** ./src/modalHandlers.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"modalHandlers\": () => (/* binding */ modalHandlers)\n/* harmony export */ });\nconst modalHandlers = () => {\nconst modal = document.querySelector(\".modal\");\nconst trigger = document.querySelector(\".trigger\");\nconst closeButton = document.querySelector(\".close-button\");\n\nconst toggleModal = () => {\n  modal.classList.toggle(\"show-modal\");\n}\n\nconst windowOnClick = (event) => {\n  if (event.target === modal) {\n    toggleModal();\n  }\n}\n\n\n  trigger.addEventListener(\"click\", toggleModal);\n  closeButton.addEventListener(\"click\", toggleModal);\n  window.addEventListener(\"click\", windowOnClick);  \n}\n\n\n\n\n//# sourceURL=webpack://todo-list/./src/modalHandlers.js?");
+
+/***/ }),
+
+/***/ "./src/modalLayout.js":
+/*!****************************!*\
+  !*** ./src/modalLayout.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"modalLayout\": () => (/* binding */ modalLayout)\n/* harmony export */ });\n{/* <button class=\"trigger\">New Todo</button>\n  <div class=\"modal\">\n    <div class=\"modal-content\">\n      <span class=\"close-button\">&times;</span>\n      <h1>This is where the todo form will go.</h1>\n    </div>\n  </div> */}\n\nconst modalLayout = () => {\n  const div = document.createElement(\"div\");\n  const btn = document.createElement(\"button\");\n  btn.classList.add(\"trigger\");\n  btn.textContent = \"New Todo\";\n  const modalDiv = document.createElement(\"div\");\n  modalDiv.classList.add(\"modal\");\n  const modalContentDiv = document.createElement(\"div\");\n  modalContentDiv.classList.add(\"modal-content\");\n  const span = document.createElement(\"span\");\n  span.classList.add(\"close-button\");\n  span.textContent = \"x\";\n  const formStandIn = document.createElement(\"h1\");\n  formStandIn.textContent = \"This is where the todo form will go.\";\n  modalDiv.appendChild(modalContentDiv);\n  modalContentDiv.appendChild(span);\n  modalContentDiv.appendChild(formStandIn);\n  div.appendChild(btn);\n  div.appendChild(modalDiv);\n  return div;\n}\n\n\n\n\n//# sourceURL=webpack://todo-list/./src/modalLayout.js?");
 
 /***/ }),
 

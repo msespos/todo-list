@@ -1,3 +1,5 @@
+import { clearTodoTitleDisplay, displayTodoTitles } from './todoLayout';
+
 const Todo = (title, description, dueDate, priority, notes) => {
   return { title, description, dueDate, priority, notes }
 };
@@ -11,10 +13,12 @@ const makeTodo = () => {
                       document.getElementById("description").value,
                       document.getElementById("dueDate").value,
                       document.getElementById("priority").value,
-                      document.getElementById("notes").value)
+                      document.getElementById("notes").value);
     project.push(todo);
     console.log(project);
+    clearTodoTitleDisplay(project);
+    displayTodoTitles(project);
   }
-}
+};
 
-export { makeTodo, project }
+export { makeTodo }

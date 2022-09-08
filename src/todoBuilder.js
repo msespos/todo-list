@@ -15,7 +15,6 @@ const makeTodo = () => {
                       document.getElementById("priority").value,
                       document.getElementById("notes").value);
     project.push(todo);
-    console.log(project);
     clearTodoTitleDisplay(project);
     displayTodoTitles(project);
   }

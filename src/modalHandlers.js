@@ -14,7 +14,26 @@ const todoModalHandlers = () => {
   trigger.addEventListener("click", toggleModal);
   closeButton.addEventListener("click", toggleModal);
   makeTodoButton.addEventListener("click", toggleModal);
-  window.addEventListener("click", windowOnClick);  
+  window.addEventListener("click", windowOnClick);
 }
 
-export { todoModalHandlers }
+const projectModalHandlers = () => {
+  const modal = document.querySelector(".project-modal");
+  const trigger = document.querySelector(".project-trigger");
+  const closeButton = document.querySelector(".project-close-button");
+  const makeTodoButton = document.querySelector("#make-project-button")
+  const toggleModal = () => {
+    modal.classList.toggle("show-modal");
+  }
+  const windowOnClick = (event) => {
+    if (event.target === modal) {
+      toggleModal();
+    }
+  }
+  trigger.addEventListener("click", toggleModal);
+  closeButton.addEventListener("click", toggleModal);
+  makeTodoButton.addEventListener("click", toggleModal);
+  window.addEventListener("click", windowOnClick);
+}
+
+export { todoModalHandlers, projectModalHandlers }

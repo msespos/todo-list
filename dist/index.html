@@ -10,6 +10,27 @@
 <body>
   <div id="content">
   </div>
+  <div>
+    <button class="trigger">New Todo</button>
+    <div class="todo-modal">
+      <div class="todo-modal-content">
+        <span class="close-button">&times;</span>
+        <form>
+          <label for="title">Title:</label><br>
+          <input type="text" id="title" name="title"><br>
+          <label for="description">Description:</label><br>
+          <input type="text" id="description" name="description"><br>
+          <label for="dueDate">Due Date:</label><br>
+          <input type="text" id="dueDate" name="dueDate"><br>
+          <label for="priority">Priority:</label><br>
+          <input type="text" id="priority" name="priority"><br>
+          <label for="notes">Notes:</label><br>
+          <input type="text" id="notes" name="notes"><br>
+          <input type="button" id="make-todo-button" value="Create Todo">
+        </form>
+      </div>
+    </div>
+  </div>
   <script src="main.js"></script>
 </body>
 </html>

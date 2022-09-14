@@ -1,5 +1,5 @@
-const modalHandlers = () => {
-  const modal = document.querySelector(".modal");
+const todoModalHandlers = () => {
+  const modal = document.querySelector(".todo-modal");
   const trigger = document.querySelector(".trigger");
   const closeButton = document.querySelector(".close-button");
   const makeTodoButton = document.querySelector("#make-todo-button")
@@ -17,4 +17,4 @@ const modalHandlers = () => {
   window.addEventListener("click", windowOnClick);  
 }
 
-export { modalHandlers }
+export { todoModalHandlers }

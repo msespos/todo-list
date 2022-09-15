@@ -1,4 +1,4 @@
-const clearTodoTitleDisplay = (project) => {
+const clearTodoTitleDisplay = () => {
   const titles = document.querySelectorAll('.todo-title');
   titles.forEach((title) => {
     title.remove();

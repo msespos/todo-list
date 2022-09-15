@@ -54,4 +54,4 @@ const displayTodo = (todo, index) => {
   div.appendChild(notes);
 };
 
-export { clearTodoTitleDisplay, displayTodoTitles, displayTodo }
+export { clearTodoTitleDisplay, displayTodoTitles }

@@ -19,11 +19,11 @@ const displayProjectTitles = (projects) => {
   });
 };
 
-const toggleProject = ( project, index) => {
+const toggleProject = (project) => {
   if (document.querySelector(".todo")) {
     clearProject();
   } else {
-    displayProjectTodoTitles(project, index);
+    displayTodoTitles(project);
   }
 };
 
@@ -34,8 +34,8 @@ const clearProject = () => {
   });
 };
 
-const displayProjectTodoTitles = (project, index) => {
-  const div = document.getElementById("project-title-" + index);
+const displayTodoTitles = (project) => {
+  //const div = document.getElementById("project-title-" + index);
   project.todos.forEach((todo) => {
     const title = document.createElement("div");
     title.textContent = todo.title;

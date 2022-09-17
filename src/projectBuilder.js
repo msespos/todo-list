@@ -6,7 +6,7 @@ const Project = (title, todos) => {
 
 let projects = [];
 
-const makeProject = () => {
+const activateProjectForm = () => {
   const makeProjectButton = document.getElementById("make-project-button");
   makeProjectButton.onclick = () => {
     const project = Project(document.getElementById("project-title").value, []);
@@ -16,4 +16,4 @@ const makeProject = () => {
   }
 };
 
-export { makeProject }
+export { activateProjectForm }

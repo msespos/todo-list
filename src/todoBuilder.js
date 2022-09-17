@@ -6,7 +6,7 @@ const Todo = (title, description, dueDate, priority, notes) => {
 
 let project = [];
 
-const makeTodo = () => {
+const activateTodoForm = () => {
   const makeTodoButton = document.getElementById("make-todo-button");
   makeTodoButton.onclick = () => {
     const todo = Todo(document.getElementById("todo-title").value,
@@ -20,4 +20,4 @@ const makeTodo = () => {
   }
 };
 
-export { makeTodo }
+export { activateTodoForm }

@@ -23,4 +23,4 @@ const activateProjectForm = () => {
   }
 };
 
-export { makeFirstProject, activateProjectForm }
+export { Project, makeFirstProject, activateProjectForm }

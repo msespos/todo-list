@@ -1,10 +1,11 @@
 import { clearTodoTitleDisplay, displayTodoTitles } from './todoLayout';
+import { Project } from './projectBuilder'
 
 const Todo = (title, description, dueDate, priority, notes) => {
   return { title, description, dueDate, priority, notes }
 };
 
-let project = [];
+let project = Project("Test", []);
 
 const activateTodoForm = () => {
   const makeTodoButton = document.getElementById("make-todo-button");
@@ -14,7 +15,7 @@ const activateTodoForm = () => {
                       document.getElementById("todo-due-date").value,
                       document.getElementById("todo-priority").value,
                       document.getElementById("todo-notes").value);
-    project.push(todo);
+    project.todos.push(todo);
     clearTodoTitleDisplay();
     displayTodoTitles(project);
   }

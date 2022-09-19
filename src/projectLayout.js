@@ -49,7 +49,6 @@ const displayNewTodoButton = (index) => {
   btn.classList.add("todo-trigger");
   btn.textContent = "New Todo";
   div.appendChild(btn);
-  console.log("THIS SHOULD WORK");
 }
 
 export { clearProjectTitleDisplay, displayProjectTitles }

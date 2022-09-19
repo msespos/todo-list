@@ -1,4 +1,4 @@
-import { clearProjectTitleDisplay, displayProjectTitles } from './projectLayout';
+import { clearProjectTitleDisplay, displayProjectTitles, displayNewTodoButton } from './projectLayout';
 
 const Project = (title, todos) => {
   return { title, todos }

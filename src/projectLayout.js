@@ -16,6 +16,7 @@ const displayProjectTitles = (projects) => {
     title.onclick = () => {
       toggleProject(project, index);
     }
+    displayNewTodoButton(index);
   });
 };
 
@@ -35,12 +36,20 @@ const clearProject = () => {
 };
 
 const displayTodoTitles = (project) => {
-  //const div = document.getElementById("project-title-" + index);
   project.todos.forEach((todo) => {
     const title = document.createElement("div");
     title.textContent = todo.title;
     title.classList.add("todo")
   });
 };
+
+const displayNewTodoButton = (index) => {
+  const div = document.getElementById("project-title-" + index);
+  const btn = document.createElement("button");
+  btn.classList.add("todo-trigger");
+  btn.textContent = "New Todo";
+  div.appendChild(btn);
+  console.log("THIS SHOULD WORK");
+}
 
 export { clearProjectTitleDisplay, displayProjectTitles }

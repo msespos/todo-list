@@ -1,3 +1,4 @@
+import { todoModalHandlers } from './modalHandlers';
 import { clearTodoTitleDisplay, displayTodoTitles } from './todoLayout';
 
 const clearProjectDisplay = () => {
@@ -52,6 +53,7 @@ const displayNewTodoButton = (index) => {
   btn.classList.add("todo-trigger");
   btn.textContent = "New Todo";
   div.appendChild(btn);
+  todoModalHandlers();
 }
 
 export { clearProjectDisplay, displayProjects }

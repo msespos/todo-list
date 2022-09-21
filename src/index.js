@@ -4,6 +4,5 @@ import { activateProjectForm, makeFirstProject } from './projectBuilder';
 
 makeFirstProject();
 projectModalHandlers();
-todoModalHandlers();
 activateTodoForm();
 activateProjectForm();

@@ -1,3 +1,4 @@
+import { todoModalHandlers } from './modalHandlers';
 import { clearProjectDisplay, displayProjects } from './projectLayout';
 import { Project, projects } from './projectBuilder'
 import { clearTodoTitleDisplay } from './todoLayout';
@@ -15,6 +16,9 @@ const activateTodoForm = () => {
                       document.getElementById("todo-priority").value,
                       document.getElementById("todo-notes").value);
     projects[0].todos.push(todo);
+    console.log(projects[0]);
+    todoModalHandlers();
+    clearTodoTitleDisplay();
     clearProjectDisplay();
     displayProjects(projects);
   }

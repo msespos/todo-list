@@ -15,9 +15,15 @@ const activateTodoForm = () => {
                       document.getElementById("todo-due-date").value,
                       document.getElementById("todo-priority").value,
                       document.getElementById("todo-notes").value);
+    
+    // NEED TO FIGURE OUT HOW TO GET AN INDEX TO PROJECTS AND TO TODOMODALHANDLERS
+
     projects[0].todos.push(todo);
     console.log(projects[0]);
-    todoModalHandlers();
+    
+    // NEED TO FIGURE OUT HOW TO GET AN INDEX TO PROJECTS AND TO TODOMODALHANDLERS
+
+    todoModalHandlers(0);
     clearTodoTitleDisplay();
     clearProjectDisplay();
     displayProjects(projects);

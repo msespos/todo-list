@@ -50,10 +50,10 @@ const displayProjects = (projects) => {
 const displayNewTodoButton = (index) => {
   const div = document.getElementById("project-title-" + index);
   const btn = document.createElement("button");
-  btn.classList.add("todo-trigger");
+  btn.classList.add("todo-trigger-" + index);
   btn.textContent = "New Todo";
   div.appendChild(btn);
-  todoModalHandlers();
+  todoModalHandlers(index);
 }
 
 export { clearProjectDisplay, displayProjects }

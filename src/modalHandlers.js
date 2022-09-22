@@ -1,6 +1,5 @@
-const todoModalHandlers = (index) => {
+const todoModalHandlers = () => {
   const modal = document.querySelector(".todo-modal");
-  const trigger = document.querySelector(".todo-trigger-" + index);
   const closeButton = document.querySelector(".todo-close-button");
   const makeTodoButton = document.querySelector("#make-todo-button");
   const toggleModal = () => {
@@ -11,7 +10,6 @@ const todoModalHandlers = (index) => {
       toggleModal();
     }
   }
-  trigger.addEventListener("click", toggleModal);
   closeButton.addEventListener("click", toggleModal);
   makeTodoButton.addEventListener("click", toggleModal);
   window.addEventListener("click", windowOnClick);

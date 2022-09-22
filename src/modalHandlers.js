@@ -1,6 +1,6 @@
-const todoModalHandlers = () => {
+const todoModalHandlers = (index) => {
   const modal = document.querySelector(".todo-modal");
-  const trigger = document.querySelector(".todo-trigger");
+  const trigger = document.querySelector(".todo-trigger-" + index);
   const closeButton = document.querySelector(".todo-close-button");
   const makeTodoButton = document.querySelector("#make-todo-button");
   const toggleModal = () => {

@@ -60,7 +60,7 @@ const displayNewTodoButton = (index) => {
     modal.classList.toggle("show-modal");
   }
   trigger.addEventListener("click", toggleModal);
-  todoModalHandlers(index);
+  todoModalHandlers();
 }
 
 export { clearProjectDisplay, displayProjects }

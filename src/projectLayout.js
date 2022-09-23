@@ -55,10 +55,12 @@ const displayNewTodoButton = (index) => {
   const modal = document.querySelector(".todo-modal");
   const toggleModal = () => {
     modal.classList.toggle("show-modal");
-  }
-  trigger.addEventListener("click", toggleModal);
-  const hiddenField = document.getElementById("project-id");
-  hiddenField.value = index;
-}
+  };
+  trigger.onclick = () => {
+    const hiddenField = document.getElementById("project-id");
+    hiddenField.value = index;
+    toggleModal();
+  };
+};
 
 export { clearProjectDisplay, displayProjects }

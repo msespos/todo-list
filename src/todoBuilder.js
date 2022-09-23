@@ -16,11 +16,10 @@ const activateTodoForm = () => {
                       document.getElementById("todo-priority").value,
                       document.getElementById("todo-notes").value);
 
-    // NEED TO FIGURE OUT HOW TO GET AN INDEX TO PROJECTS
-
-    console.log();
-    projects[0].todos.push(todo);
-    console.log(projects[0]);
+    const hiddenField = document.getElementById("project-id");
+    const projectId = hiddenField.value;
+    projects[projectId].todos.push(todo);
+    console.log(projects[projectId]);
     todoModalHandlers();
     clearTodoTitleDisplay();
     clearProjectDisplay();

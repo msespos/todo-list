@@ -19,12 +19,10 @@ const activateTodoForm = () => {
     const hiddenField = document.getElementById("project-id");
     const projectId = hiddenField.value;
     projects[projectId].todos.push(todo);
-    console.log(projects[projectId]);
-    todoModalHandlers();
     clearTodoTitleDisplay();
     clearProjectDisplay();
     displayProjects(projects);
-  }
+  };
 };
 
 export { activateTodoForm }

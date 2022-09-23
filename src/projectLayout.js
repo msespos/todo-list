@@ -49,11 +49,9 @@ const displayProjects = (projects) => {
 
 const displayNewTodoButton = (index) => {
   const div = document.getElementById("project-title-" + index);
-  const btn = document.createElement("button");
-  btn.classList.add("todo-trigger-" + index);
-  btn.textContent = "New Todo";
-  div.appendChild(btn);
-  const trigger = document.querySelector(".todo-trigger-" + index);
+  const trigger = document.createElement("button");
+  trigger.textContent = "New Todo";
+  div.appendChild(trigger);
   const modal = document.querySelector(".todo-modal");
   const toggleModal = () => {
     modal.classList.toggle("show-modal");
@@ -61,7 +59,6 @@ const displayNewTodoButton = (index) => {
   trigger.addEventListener("click", toggleModal);
   const hiddenField = document.getElementById("project-id");
   hiddenField.value = index;
-  todoModalHandlers();
 }
 
 export { clearProjectDisplay, displayProjects }

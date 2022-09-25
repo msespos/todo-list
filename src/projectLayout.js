@@ -1,5 +1,4 @@
-import { todoModalHandlers } from './modalHandlers';
-import { clearTodoTitleDisplay, displayTodoTitles } from './todoLayout';
+import { displayTodoTitles } from './todoLayout';
 
 const clearProjectDisplay = () => {
   const titles = document.querySelectorAll('.project-title');
@@ -16,36 +15,10 @@ const displayProjects = (projects) => {
     title.id = "project-title-" + index;
     title.textContent = project.title;
     div.appendChild(title);
-    //title.onclick = () => {
-      //toggleProject(project, index);
-    //}
     displayNewTodoButton(index);
     displayTodoTitles(project);
   });
 };
-
-// const toggleProject = (project) => {
-//   if (document.querySelector(".todo")) {
-//     clearProject();
-//   } else {
-//     displayTodoTitles(project);
-//   }
-// };
-
-// const clearProject = () => {
-//   const projectElements = document.querySelectorAll(".project");
-//   projectElements.forEach((projectElement) => {
-//     projectElement.remove();
-//   });
-// };
-
-// const displayTodoTitles = (project) => {
-//   project.todos.forEach((todo) => {
-//     const title = document.createElement("div");
-//     title.textContent = todo.title;
-//     title.classList.add("todo")
-//   });
-// };
 
 const displayNewTodoButton = (index) => {
   const div = document.getElementById("project-title-" + index);

@@ -1,6 +1,5 @@
-import { todoModalHandlers } from './modalHandlers';
 import { clearProjectDisplay, displayProjects } from './projectLayout';
-import { Project, projects } from './projectBuilder'
+import { projects } from './projectBuilder'
 import { clearTodoTitleDisplay } from './todoLayout';
 
 const Todo = (title, description, dueDate, priority, notes) => {

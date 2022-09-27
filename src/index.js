@@ -1,9 +1,13 @@
 import { todoModalHandlers, projectModalHandlers } from './modalHandlers';
 import { activateTodoForm } from './todoBuilder';
-import { activateProjectForm, makeFirstProject } from './projectBuilder';
+import { activateProjectForm, makeFirstProject, refreshProjectDisplay } from './projectBuilder';
 
-makeFirstProject();
+let activeProject = makeFirstProject();
+console.log(activeProject);
+refreshProjectDisplay();
 todoModalHandlers();
 projectModalHandlers();
 activateTodoForm();
 activateProjectForm();
+
+export { activeProject }

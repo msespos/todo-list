@@ -1,6 +1,55 @@
 * {
   color: purple;
 }
+html, body {
+  height: 100%;
+}
+
+.header {
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  font-size: xx-large;
+}
+
+.sidebar-and-active-project {
+  border: 1px solid red;
+  display: flex;
+  height: 100%;
+  font-size: large;
+}
+
+.sidebar {
+  border: 1px solid red;
+  flex: 1;
+  padding-top: 50px;
+  padding-left: 30px;
+}
+
+.inactive-project {
+  margin: 10px;
+}
+
+.active-project {
+  border: 1px solid red;
+  flex: 4;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.active-projects-todos {
+  border: 1px solid red;
+  margin: 10px;
+}
+
+.active-project-todo {
+  border: 1px solid red;
+  margin: 10px;
+  padding: 5px;
+}
 
 /* modal css from https://sabe.io/tutorials/how-to-create-modal-popup-box */
 .todo-modal, .project-modal {

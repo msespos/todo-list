@@ -10,6 +10,11 @@ let projects = [];
 const makeFirstProject = () => {
   const project = Project("Default Project", []);
   projects.push(project);
+  return project;
+}
+
+const refreshProjectDisplay = () => {
+  clearTodoTitleDisplay();
   clearProjectDisplay();
   displayProjects(projects);
 }
@@ -19,10 +24,8 @@ const activateProjectForm = () => {
   makeProjectButton.onclick = () => {
     const project = Project(document.getElementById("project-title").value, []);
     projects.push(project);
-    clearTodoTitleDisplay();
-    clearProjectDisplay();
-    displayProjects(projects);
+    refreshProjectDisplay();
   }
 };
 
-export { projects, makeFirstProject, activateProjectForm }
+export { projects, makeFirstProject, activateProjectForm, refreshProjectDisplay }

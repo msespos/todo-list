@@ -1,5 +1,6 @@
 import { displayTodoTitles } from './todoLayout';
 import { activeProject } from './index.js';
+import { refreshProjectDisplay } from './projectBuilder';
 
 const clearProjectDisplay = () => {
   const titles = document.querySelectorAll('.project-title');
@@ -25,9 +26,9 @@ const clearActiveProject = () => {
 const displayActiveProject = () => {
   const activeProjectDiv = document.querySelector(".active-project");
   const activeProjectTitle = document.createElement("div");
-  activeProjectTitle.textContent = activeProject.title;
+  activeProjectTitle.textContent = activeProject.project.title;
   activeProjectDiv.appendChild(activeProjectTitle);
-  displayTodoTitles(activeProject);
+  displayTodoTitles(activeProject.project);
 }
 
 const displayNewTodoButton = () => {
@@ -41,7 +42,7 @@ const displayNewTodoButton = () => {
   };
   trigger.onclick = () => {
     const hiddenField = document.getElementById("project-id");
-    hiddenField.value = 0;
+    hiddenField.value = activeProject.index;
     toggleModal();
   };
 };
@@ -54,6 +55,11 @@ const displayInactiveProjects = (projects) => {
     title.id = "project-title-" + index;
     title.textContent = project.title;
     div.appendChild(title);
+    title.onclick = () => {
+      activeProject.project = project;
+      activeProject.index = index;
+      refreshProjectDisplay();
+    }
   });
 };
 

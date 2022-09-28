@@ -3,6 +3,7 @@
 }
 html, body {
   height: 100%;
+  margin: 0;
 }
 
 .header {
@@ -31,9 +32,12 @@ html, body {
   margin: 10px;
 }
 
+.active-project-and-todos {
+  flex: 4;
+}
+
 .active-project {
   border: 1px solid red;
-  flex: 4;
   padding-top: 50px;
   display: flex;
   flex-direction: column;
@@ -46,6 +50,8 @@ html, body {
 }
 
 .active-project-todo {
+  display: flex;
+  justify-content: center;
   border: 1px solid red;
   margin: 10px;
   padding: 5px;

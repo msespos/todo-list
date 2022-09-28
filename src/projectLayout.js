@@ -1,4 +1,5 @@
 import { displayTodoTitles } from './todoLayout';
+import { activeProject } from './index.js';
 
 const clearProjectDisplay = () => {
   const titles = document.querySelectorAll('.project-title');
@@ -8,20 +9,29 @@ const clearProjectDisplay = () => {
 };
 
 const displayProjects = (projects) => {
-  projects.forEach((project, index) => {
-    const div = document.getElementById("content");
-    const title = document.createElement("div");
-    title.classList.add("project-title");
-    title.id = "project-title-" + index;
-    title.textContent = project.title;
-    div.appendChild(title);
-    displayNewTodoButton(index);
-    displayTodoTitles(project);
-  });
+  clearActiveProject();
+  displayActiveProject();
+  displayNewTodoButton();
+  displayInactiveProjects(projects);
 };
 
-const displayNewTodoButton = (index) => {
-  const div = document.getElementById("project-title-" + index);
+const clearActiveProject = () => {
+  const project = document.querySelector(".active-project");
+  while (project.firstChild) {
+    project.removeChild(project.firstChild);
+  }
+}
+
+const displayActiveProject = () => {
+  const activeProjectDiv = document.querySelector(".active-project");
+  const activeProjectTitle = document.createElement("div");
+  activeProjectTitle.textContent = activeProject.title;
+  activeProjectDiv.appendChild(activeProjectTitle);
+  displayTodoTitles(activeProject);
+}
+
+const displayNewTodoButton = () => {
+  const div = document.querySelector(".active-project");
   const trigger = document.createElement("button");
   trigger.textContent = "New Todo";
   div.appendChild(trigger);
@@ -31,9 +41,20 @@ const displayNewTodoButton = (index) => {
   };
   trigger.onclick = () => {
     const hiddenField = document.getElementById("project-id");
-    hiddenField.value = index;
+    hiddenField.value = 0;
     toggleModal();
   };
+};
+
+const displayInactiveProjects = (projects) => {
+  projects.forEach((project, index) => {
+    const div = document.querySelector(".sidebar")
+    const title = document.createElement("div");
+    title.classList.add("project-title");
+    title.id = "project-title-" + index;
+    title.textContent = project.title;
+    div.appendChild(title);
+  });
 };
 
 export { clearProjectDisplay, displayProjects }

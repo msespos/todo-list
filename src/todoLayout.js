@@ -7,8 +7,9 @@ const clearTodoTitleDisplay = () => {
 
 const displayTodoTitles = (project) => {
   project.todos.forEach((todo, index) => {
-    const div = document.getElementById("content");
+    const div = document.querySelector(".active-projects-todos");
     const title = document.createElement("div");
+    title.classList.add("active-project-todo")
     title.classList.add("todo-title");
     title.id = "todo-title-" + index;
     title.textContent = todo.title;

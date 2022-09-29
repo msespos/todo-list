@@ -13,9 +13,8 @@ const activateTodoForm = () => {
     const todo = Todo(document.getElementById("todo-title").value,
                       document.getElementById("todo-description").value,
                       document.getElementById("todo-due-date").value,
-                      document.getElementById("todo-priority").value,
+                      getSelectedPriority(),
                       document.getElementById("todo-notes").value);
-
     const hiddenField = document.getElementById("project-id");
     const projectId = hiddenField.value;
     projects[projectId].todos.push(todo);
@@ -24,6 +23,17 @@ const activateTodoForm = () => {
     displayProjects(projects);
     setDateToToday();
   };
+};
+
+const getSelectedPriority = () => {
+  const priorities = document.getElementsByName("todo-priority");
+  let selectedPriority = null;
+  priorities.forEach((priority) => {
+    if (priority.checked) {
+      selectedPriority = priority.value;
+    }
+  });
+  return selectedPriority;
 };
 
 export { activateTodoForm }

@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "crypto": "^1.0.1",
+    "date-fns": "^2.29.3",
     "path": "^0.12.7",
     "process": "^0.11.10",
     "util": "^0.12.4",

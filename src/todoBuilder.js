@@ -1,6 +1,7 @@
 import { clearProjectDisplay, displayProjects } from './projectLayout';
 import { projects } from './projectBuilder'
 import { clearTodoTitleDisplay } from './todoLayout';
+import { setDateToToday } from './setDateToToday';
 
 const Todo = (title, description, dueDate, priority, notes) => {
   return { title, description, dueDate, priority, notes }
@@ -21,6 +22,7 @@ const activateTodoForm = () => {
     clearTodoTitleDisplay();
     clearProjectDisplay();
     displayProjects(projects);
+    setDateToToday();
   };
 };
 

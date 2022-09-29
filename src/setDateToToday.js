@@ -1,4 +1,4 @@
-// code from https://bobbyhadz.com/blog/javascript-set-current-date-to-input
+// code adapted from https://bobbyhadz.com/blog/javascript-set-current-date-to-input
 
 const setDateToToday = () => {
   const dateInput = document.getElementById('todo-due-date');

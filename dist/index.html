@@ -23,7 +23,7 @@
             <form>
               <label for="project-title">Title:</label><br>
               <input type="text" id="project-title" name="title"><br>
-              <input type="button" id="make-project-button" value="Create Project">
+              <input type="button" id="create-project-button" value="Create Project">
             </form>
           </div>
         </div>
@@ -40,8 +40,8 @@
     </div>
   </div>
   <div>
-    <div class="todo-modal">
-      <div class="todo-modal-content">
+    <div class="create-todo-modal">
+      <div class="create-todo-modal-content">
         <span class="todo-close-button">&times;</span>
         <form>
           <label for="todo-title">Title:</label><br>
@@ -59,7 +59,33 @@
           <input type="radio" id="low-priority" name="todo-priority" value="low"><br><br>
           <label for="todo-notes">Notes:</label><br>
           <textarea id="todo-notes" name="notes" rows="8" cols="50"></textarea><br><br>
-          <input type="button" id="make-todo-button" value="Create Todo">
+          <input type="button" id="create-todo-button" value="Create Todo">
+          <input type="hidden" id="project-id" name="project-id" value="">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="edit-todo-modal">
+      <div class="edit-todo-modal-content">
+        <span class="todo-close-button">&times;</span>
+        <form>
+          <label for="todo-title">Title:</label><br>
+          <input type="text" id="todo-title" name="title"><br><br>
+          <label for="todo-description">Description:</label><br>
+          <textarea id="todo-description" name="description" rows="4" cols="50"></textarea><br><br>
+          <label for="todo-due-date">Due date:</label>
+          <input type="date" id="todo-due-date" name="due-date" max="2050-12-31"><br><br>
+          Priority:<br>
+          <label for="high-priority">High</label>
+          <input type="radio" id="high-priority" name="todo-priority" value="high">
+          <label for="medium-priority">Medium</label>
+          <input type="radio" id="medium-priority" name="todo-priority" value="medium">
+          <label for="low-priority">Low</label>
+          <input type="radio" id="low-priority" name="todo-priority" value="low"><br><br>
+          <label for="todo-notes">Notes:</label><br>
+          <textarea id="todo-notes" name="notes" rows="8" cols="50"></textarea><br><br>
+          <input type="button" id="edit-todo-button" value="Edit Todo">
           <input type="hidden" id="project-id" name="project-id" value="">
         </form>
       </div>

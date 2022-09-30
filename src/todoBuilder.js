@@ -7,9 +7,9 @@ const Todo = (title, description, dueDate, priority, notes) => {
   return { title, description, dueDate, priority, notes }
 };
 
-const activateTodoForm = () => {
-  const makeTodoButton = document.getElementById("make-todo-button");
-  makeTodoButton.onclick = () => {
+const activateCreateTodoForm = () => {
+  const createTodoButton = document.getElementById("create-todo-button");
+  createTodoButton.onclick = () => {
     const todo = Todo(document.getElementById("todo-title").value,
                       document.getElementById("todo-description").value,
                       document.getElementById("todo-due-date").value,
@@ -36,4 +36,4 @@ const getSelectedPriority = () => {
   return selectedPriority;
 };
 
-export { activateTodoForm }
+export { activateCreateTodoForm }

@@ -1,14 +1,14 @@
 import { todoModalHandlers, projectModalHandlers } from './modalHandlers';
-import { activateTodoForm } from './todoBuilder';
-import { activateProjectForm, makeFirstProject, refreshProjectDisplay } from './projectBuilder';
+import { activateCreateTodoForm } from './todoBuilder';
+import { activateCreateProjectForm, createFirstProject, refreshProjectDisplay } from './projectBuilder';
 import { setDateToToday } from './setDateToToday';
 
 setDateToToday();
-let activeProject = { project: makeFirstProject(), index: 0 };
+let activeProject = { project: createFirstProject(), index: 0 };
 refreshProjectDisplay();
 todoModalHandlers();
 projectModalHandlers();
-activateTodoForm();
-activateProjectForm();
+activateCreateTodoForm();
+activateCreateProjectForm();
 
 export { activeProject }

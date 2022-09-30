@@ -36,7 +36,7 @@ const displayNewTodoButton = () => {
   const trigger = document.createElement("button");
   trigger.textContent = "New Todo";
   div.appendChild(trigger);
-  const modal = document.querySelector(".todo-modal");
+  const modal = document.querySelector(".create-todo-modal");
   const toggleModal = () => {
     modal.classList.toggle("show-modal");
   };

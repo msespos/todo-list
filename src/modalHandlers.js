@@ -1,7 +1,7 @@
 const todoModalHandlers = () => {
-  const modal = document.querySelector(".todo-modal");
+  const modal = document.querySelector(".create-todo-modal");
   const closeButton = document.querySelector(".todo-close-button");
-  const makeTodoButton = document.querySelector("#make-todo-button");
+  const createTodoButton = document.querySelector("#create-todo-button");
   const toggleModal = () => {
     modal.classList.toggle("show-modal");
   }
@@ -11,7 +11,7 @@ const todoModalHandlers = () => {
     }
   }
   closeButton.addEventListener("click", toggleModal);
-  makeTodoButton.addEventListener("click", toggleModal);
+  createTodoButton.addEventListener("click", toggleModal);
   window.addEventListener("click", windowOnClick);
 }
 
@@ -19,7 +19,7 @@ const projectModalHandlers = () => {
   const modal = document.querySelector(".project-modal");
   const trigger = document.querySelector(".project-trigger");
   const closeButton = document.querySelector(".project-close-button");
-  const makeTodoButton = document.querySelector("#make-project-button");
+  const createProjectButton = document.querySelector("#create-project-button");
   const toggleModal = () => {
     modal.classList.toggle("show-modal");
   }
@@ -30,7 +30,7 @@ const projectModalHandlers = () => {
   }
   trigger.addEventListener("click", toggleModal);
   closeButton.addEventListener("click", toggleModal);
-  makeTodoButton.addEventListener("click", toggleModal);
+  createProjectButton.addEventListener("click", toggleModal);
   window.addEventListener("click", windowOnClick);
 }
 

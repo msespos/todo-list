@@ -7,7 +7,7 @@ const Project = (title, todos) => {
 
 let projects = [];
 
-const makeFirstProject = () => {
+const createFirstProject = () => {
   const project = Project("Default Project", []);
   projects.push(project);
   return project;
@@ -19,13 +19,13 @@ const refreshProjectDisplay = () => {
   displayProjects(projects);
 }
 
-const activateProjectForm = () => {
-  const makeProjectButton = document.getElementById("make-project-button");
-  makeProjectButton.onclick = () => {
+const activateCreateProjectForm = () => {
+  const createProjectButton = document.getElementById("create-project-button");
+  createProjectButton.onclick = () => {
     const project = Project(document.getElementById("project-title").value, []);
     projects.push(project);
     refreshProjectDisplay();
   }
 };
 
-export { projects, makeFirstProject, activateProjectForm, refreshProjectDisplay }
+export { projects, createFirstProject, activateCreateProjectForm, refreshProjectDisplay }

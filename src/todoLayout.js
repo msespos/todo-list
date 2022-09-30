@@ -53,6 +53,17 @@ const displayTodo = (todo, index) => {
   notes.textContent = todo.notes;
   notes.classList.add("todo");
   div.appendChild(notes);
+  const editButton = document.createElement("button");
+  const modal = document.querySelector(".edit-todo-modal");
+  const toggleModal = () => {
+    modal.classList.toggle("show-modal");
+  };
+  editButton.classList.add("todo");
+  editButton.textContent = "Edit Todo"
+  editButton.onclick = () => {
+    toggleModal();
+  };
+  div.appendChild(editButton);
 };
 
 export { clearTodoTitleDisplay, displayTodoTitles }

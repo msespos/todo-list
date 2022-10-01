@@ -8,7 +8,7 @@ const Todo = (title, description, dueDate, priority, notes) => {
 };
 
 const activateCreateTodoForm = () => {
-  const createTodoButton = document.getElementById("create-todo-button");
+  const createTodoButton = document.getElementById("todo-button");
   createTodoButton.onclick = () => {
     const todo = Todo(document.getElementById("todo-title").value,
                       document.getElementById("todo-description").value,

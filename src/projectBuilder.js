@@ -20,7 +20,7 @@ const refreshProjectDisplay = () => {
 }
 
 const activateCreateProjectForm = () => {
-  const createProjectButton = document.getElementById("create-project-button");
+  const createProjectButton = document.getElementById("project-button");
   createProjectButton.onclick = () => {
     const project = Project(document.getElementById("project-title").value, []);
     projects.push(project);

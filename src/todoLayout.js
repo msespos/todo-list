@@ -54,7 +54,7 @@ const displayTodo = (todo, index) => {
   notes.classList.add("todo");
   div.appendChild(notes);
   const editButton = document.createElement("button");
-  const modal = document.querySelector(".edit-todo-modal");
+  const modal = document.querySelector(".todo-modal");
   const toggleModal = () => {
     modal.classList.toggle("show-modal");
   };
@@ -62,6 +62,8 @@ const displayTodo = (todo, index) => {
   editButton.textContent = "Edit Todo"
   editButton.onclick = () => {
     toggleModal();
+    const btn = document.getElementById("todo-button");
+    btn.value = "Save Edits";
   };
   div.appendChild(editButton);
 };

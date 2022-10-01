@@ -36,11 +36,13 @@ const displayNewTodoButton = () => {
   const trigger = document.createElement("button");
   trigger.textContent = "New Todo";
   div.appendChild(trigger);
-  const modal = document.querySelector(".create-todo-modal");
+  const modal = document.querySelector(".todo-modal");
   const toggleModal = () => {
     modal.classList.toggle("show-modal");
   };
   trigger.onclick = () => {
+    const btn = document.getElementById("todo-button");
+    btn.value = "Create Todo";
     const hiddenField = document.getElementById("project-id");
     hiddenField.value = activeProject.index;
     toggleModal();

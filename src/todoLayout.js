@@ -1,4 +1,5 @@
 import { activeProject } from './index.js';
+import { activateEditTodoForm } from './todoBuilder.js';
 
 const clearTodoTitleDisplay = () => {
   const titles = document.querySelectorAll('.todo-title');
@@ -86,6 +87,7 @@ const displayTodo = (todo, index) => {
     hiddenField.value = currentTodo.id;
     const btn = document.getElementById("todo-button");
     btn.value = "Save Edits";
+    activateEditTodoForm();
     toggleModal();
   };
   div.appendChild(editButton);

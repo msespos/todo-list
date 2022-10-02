@@ -31,10 +31,7 @@ const activateCreateTodoForm = () => {
     const hiddenField = document.getElementById("project-id");
     const projectId = hiddenField.value;
     projects[projectId].todos.push(todo);
-    clearTodoTitleDisplay();
-    clearProjectDisplay();
-    displayProjects(projects);
-    setDateToToday();
+    displayReset();
   };
 };
 
@@ -52,10 +49,7 @@ const activateEditTodoForm = () => {
     todo.priority = getSelectedPriority(),
     todo.notes = document.getElementById("todo-notes").value,
     projects[projectId].todos[todoId] = todo;
-    clearTodoTitleDisplay();
-    clearProjectDisplay();
-    displayProjects(projects);
-    setDateToToday();
+    displayReset();
   };
 };
 
@@ -68,6 +62,13 @@ const getSelectedPriority = () => {
     }
   });
   return selectedPriority;
+};
+
+const displayReset = () => {
+  clearTodoTitleDisplay();
+  clearProjectDisplay();
+  displayProjects(projects);
+  setDateToToday();
 };
 
 export { activateCreateTodoForm, activateEditTodoForm }

@@ -3,9 +3,21 @@ import { projects } from './projectBuilder'
 import { clearTodoTitleDisplay } from './todoLayout';
 import { setDateToToday } from './setDateToToday';
 
-const Todo = (title, description, dueDate, priority, notes) => {
-  return { title, description, dueDate, priority, notes }
+const Todo = (title, description, dueDate, priority, notes, id) => {
+  return { title, description, dueDate, priority, notes, id }
 };
+
+// makeCounter adapted from
+// https://stackoverflow.com/questions/5690723/how-should-i-generate-unique-ids-for-a-bunch-of-objects
+const makeCounter = () => {
+  let i = 0;
+  const incrementCounter = () => {
+    return i++;
+  }
+  return incrementCounter;
+}
+
+let id = makeCounter();
 
 const activateCreateTodoForm = () => {
   const createTodoButton = document.getElementById("todo-button");
@@ -14,7 +26,8 @@ const activateCreateTodoForm = () => {
                       document.getElementById("todo-description").value,
                       document.getElementById("todo-due-date").value,
                       getSelectedPriority(),
-                      document.getElementById("todo-notes").value);
+                      document.getElementById("todo-notes").value,
+                      id());
     const hiddenField = document.getElementById("project-id");
     const projectId = hiddenField.value;
     projects[projectId].todos.push(todo);

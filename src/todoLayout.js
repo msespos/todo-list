@@ -1,3 +1,5 @@
+import { activeProject } from './index.js';
+
 const clearTodoTitleDisplay = () => {
   const titles = document.querySelectorAll('.todo-title');
   titles.forEach((title) => {
@@ -61,9 +63,30 @@ const displayTodo = (todo, index) => {
   editButton.classList.add("todo");
   editButton.textContent = "Edit Todo"
   editButton.onclick = () => {
-    toggleModal();
+    const currentTodo = activeProject.project.todos.find(obj => obj.id === todo.id);
+    const title = document.getElementById("todo-title");
+    title.value = currentTodo.title;
+    const description = document.getElementById("todo-description");
+    description.value = currentTodo.description;
+    const dueDate = document.getElementById("todo-due-date");
+    dueDate.value = currentTodo.dueDate;
+    if (currentTodo.priority === "high") {
+      const highPriority = document.getElementById("high-priority");
+      highPriority.checked = true;
+    } else if (currentTodo.priority === "medium") {
+      const mediumPriority = document.getElementById("medium-priority");
+      mediumPriority.checked = true;
+    } else {
+      const lowPriority = document.getElementById("low-priority");
+      lowPriority.checked = true;
+    }
+    const notes = document.getElementById("todo-notes");
+    notes.value = currentTodo.notes;
+    const hiddenField = document.getElementById("todo-id");
+    hiddenField.value = currentTodo.id;
     const btn = document.getElementById("todo-button");
     btn.value = "Save Edits";
+    toggleModal();
   };
   div.appendChild(editButton);
 };

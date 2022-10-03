@@ -53,6 +53,17 @@ const activateEditTodoForm = () => {
   };
 };
 
+const deleteTodo = () => {
+  const projectHiddenField = document.getElementById("project-id");
+  const projectId = projectHiddenField.value;
+  const todoHiddenField = document.getElementById("todo-id");
+  const todoId = todoHiddenField.value;
+  const isTodo = (element) => element.id = todoId;
+  const arrayIndexOfTodo = projects[projectId].todos.findIndex(isTodo);
+  projects[projectId].todos.splice(arrayIndexOfTodo, 1);
+  displayReset();
+};
+
 const getSelectedPriority = () => {
   const priorities = document.getElementsByName("todo-priority");
   let selectedPriority = null;
@@ -71,4 +82,4 @@ const displayReset = () => {
   setDateToToday();
 };
 
-export { activateCreateTodoForm, activateEditTodoForm }
+export { activateCreateTodoForm, activateEditTodoForm, deleteTodo }

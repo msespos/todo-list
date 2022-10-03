@@ -1,5 +1,5 @@
 import { activeProject } from './index.js';
-import { activateEditTodoForm } from './todoBuilder.js';
+import { activateEditTodoForm, deleteTodo } from './todoBuilder.js';
 
 const clearTodoTitleDisplay = () => {
   const titles = document.querySelectorAll('.todo-title');
@@ -12,7 +12,7 @@ const displayTodoTitles = (project) => {
   project.todos.forEach((todo, index) => {
     const div = document.querySelector(".active-projects-todos");
     const title = document.createElement("div");
-    title.classList.add("active-project-todo")
+    title.classList.add("active-project-todo");
     title.classList.add("todo-title");
     title.id = "todo-title-" + index;
     title.textContent = todo.title;
@@ -62,7 +62,7 @@ const displayTodo = (todo, index) => {
     modal.classList.toggle("show-modal");
   };
   editButton.classList.add("todo");
-  editButton.textContent = "Edit Todo"
+  editButton.textContent = "Edit Todo";
   editButton.onclick = () => {
     const currentTodo = activeProject.project.todos.find(obj => obj.id === todo.id);
     const title = document.getElementById("todo-title");
@@ -91,6 +91,15 @@ const displayTodo = (todo, index) => {
     toggleModal();
   };
   div.appendChild(editButton);
+  const deleteButton = document.createElement("button");
+  deleteButton.id = "todo-delete-button";
+  deleteButton.classList.add("todo");
+  deleteButton.textContent = "Delete todo";
+  deleteButton.onclick = (e) => {
+    e.stopPropagation();
+    deleteTodo();
+  };
+  div.appendChild(deleteButton);
 };
 
 export { clearTodoTitleDisplay, displayTodoTitles }

@@ -40,22 +40,13 @@ const clearTodo = () => {
 
 const displayTodo = (todo, index) => {
   const div = document.getElementById("todo-title-" + index);
-  const description = document.createElement("div");
-  description.textContent = todo.description;
-  description.classList.add("todo");
-  div.appendChild(description);
-  const dueDate = document.createElement("div");
-  dueDate.textContent = todo.dueDate;
-  dueDate.classList.add("todo");
-  div.appendChild(dueDate);
-  const priority = document.createElement("div");
-  priority.textContent = todo.priority;
-  priority.classList.add("todo");
-  div.appendChild(priority);
-  const notes = document.createElement("div");
-  notes.textContent = todo.notes;
-  notes.classList.add("todo");
-  div.appendChild(notes);
+  const todoAttributes = [todo.description, todo.dueDate, todo.priority, todo.notes];
+  todoAttributes.forEach((todoAttribute) => {
+    const attribute = document.createElement("div");
+    attribute.textContent = todoAttribute;
+    attribute.classList.add("todo");
+    div.appendChild(attribute);
+  });
   const editButton = document.createElement("button");
   const modal = document.querySelector(".todo-modal");
   const toggleModal = () => {

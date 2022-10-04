@@ -29,7 +29,7 @@ const activateCreateTodoForm = () => {
                       document.getElementById("todo-notes").value,
                       id());
     const hiddenField = document.getElementById("project-id");
-    const projectId = hiddenField.value;
+    const projectId = parseInt(hiddenField.value);
     projects[projectId].todos.push(todo);
     displayReset();
   };
@@ -37,9 +37,9 @@ const activateCreateTodoForm = () => {
 
 const activateEditTodoForm = () => {
   const projectHiddenField = document.getElementById("project-id");
-  const projectId = projectHiddenField.value;
-  const todoHiddenField = document.getElementById("todo-id");
-  const todoId = todoHiddenField.value;
+  const projectId = parseInt(projectHiddenField.value);
+  const todoHiddenField = document.getElementById("edit-todo-id");
+  const todoId = parseInt(todoHiddenField.value);
   const todo = projects[projectId].todos[todoId];
   const editTodoButton = document.getElementById("todo-button");
   editTodoButton.onclick = () => {
@@ -55,11 +55,10 @@ const activateEditTodoForm = () => {
 
 const deleteTodo = () => {
   const projectHiddenField = document.getElementById("project-id");
-  const projectId = projectHiddenField.value;
-  const todoHiddenField = document.getElementById("todo-id");
-  const todoId = todoHiddenField.value;
-  const isTodo = (element) => element.id = todoId;
-  const arrayIndexOfTodo = projects[projectId].todos.findIndex(isTodo);
+  const projectId = parseInt(projectHiddenField.value);
+  const todoHiddenField = document.getElementById("delete-todo-id");
+  const todoId = parseInt(todoHiddenField.value);
+  const arrayIndexOfTodo = projects[projectId].todos.findIndex(e => e.id === todoId);
   projects[projectId].todos.splice(arrayIndexOfTodo, 1);
   displayReset();
 };

@@ -55,7 +55,7 @@ const displayTodo = (todo, index) => {
   editButton.classList.add("todo");
   editButton.textContent = "Edit Todo";
   editButton.onclick = () => {
-    const currentTodo = activeProject.project.todos.find(obj => obj.id === todo.id);
+    const currentTodo = activeProject.project.todos.find(e => e.id === todo.id);
     const title = document.getElementById("todo-title");
     title.value = currentTodo.title;
     const description = document.getElementById("todo-description");
@@ -74,7 +74,7 @@ const displayTodo = (todo, index) => {
     }
     const notes = document.getElementById("todo-notes");
     notes.value = currentTodo.notes;
-    const hiddenField = document.getElementById("todo-id");
+    const hiddenField = document.getElementById("edit-todo-id");
     hiddenField.value = currentTodo.id;
     const btn = document.getElementById("todo-button");
     btn.value = "Save Edits";
@@ -87,6 +87,9 @@ const displayTodo = (todo, index) => {
   deleteButton.classList.add("todo");
   deleteButton.textContent = "Delete todo";
   deleteButton.onclick = (e) => {
+    const currentTodo = activeProject.project.todos.find(e => e.id === todo.id);
+    const hiddenField = document.getElementById("delete-todo-id");
+    hiddenField.value = todo.id;
     e.stopPropagation();
     deleteTodo();
   };

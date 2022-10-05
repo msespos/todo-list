@@ -42,7 +42,8 @@ const activateEditTodoForm = () => {
   const projectId = parseInt(projectHiddenField.value);
   const todoHiddenField = document.getElementById("edit-todo-id");
   const todoId = parseInt(todoHiddenField.value);
-  const todo = projects[projectId].todos[todoId];
+  const arrayIndexOfTodo = projects[projectId].todos.findIndex(e => e.id === todoId);
+  const todo = projects[projectId].todos[arrayIndexOfTodo];
   const editTodoButton = document.getElementById("edit-todo-button");
   editTodoButton.onclick = () => {
     todo.title = document.getElementById("todo-title").value,
@@ -50,8 +51,7 @@ const activateEditTodoForm = () => {
     todo.dueDate = document.getElementById("todo-due-date").value,
     todo.priority = getSelectedPriority(),
     todo.notes = document.getElementById("todo-notes").value,
-    projects[projectId].todos[todoId] = todo;
-    console.log("Edited todo ID", todoId);
+    projects[projectId].todos[arrayIndexOfTodo] = todo;
     console.log("Project after editing todo", projects[projectId])
     displayReset();
   };

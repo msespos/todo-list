@@ -54,13 +54,13 @@ const displayTodo = (todo, index) => {
   };
   editButton.classList.add("todo");
   editButton.textContent = "Edit Todo";
+  const currentTodo = activeProject.project.todos.find(e => e.id === todo.id);
   editButton.onclick = () => {
     const createTodoButton = document.getElementById("create-todo-button");
     createTodoButton.style.visibility = "hidden";
     const editTodoButton = document.getElementById("edit-todo-button");
     editTodoButton.style.visibility = "visible";
     console.log("in edit button");
-    const currentTodo = activeProject.project.todos.find(e => e.id === todo.id);
     const title = document.getElementById("todo-title");
     title.value = currentTodo.title;
     const description = document.getElementById("todo-description");
@@ -90,9 +90,8 @@ const displayTodo = (todo, index) => {
   deleteButton.classList.add("todo");
   deleteButton.textContent = "Delete todo";
   deleteButton.onclick = (e) => {
-    const currentTodo = activeProject.project.todos.find(e => e.id === todo.id);
     const hiddenField = document.getElementById("delete-todo-id");
-    hiddenField.value = todo.id;
+    hiddenField.value = currentTodo.id;
     e.stopPropagation();
     deleteTodo();
   };

@@ -41,6 +41,8 @@ const displayNewTodoButton = () => {
     modal.classList.toggle("show-modal");
   };
   trigger.onclick = () => {
+    console.log("in new todo button")
+
     const title = document.getElementById("todo-title");
     title.value = "";
     const description = document.getElementById("todo-description");
@@ -49,8 +51,10 @@ const displayNewTodoButton = () => {
     highPriority.checked = true;
     const notes = document.getElementById("todo-notes");
     notes.value = "";
-    const btn = document.getElementById("todo-button");
-    btn.value = "Create Todo";
+    const btn = document.getElementById("create-todo-button");
+    btn.style.visibility = "visible";
+    const editTodoButton = document.getElementById("edit-todo-button");
+    editTodoButton.style.visibility = "hidden";
     const hiddenField = document.getElementById("project-id");
     hiddenField.value = activeProject.index;
     toggleModal();

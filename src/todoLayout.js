@@ -55,6 +55,11 @@ const displayTodo = (todo, index) => {
   editButton.classList.add("todo");
   editButton.textContent = "Edit Todo";
   editButton.onclick = () => {
+    const createTodoButton = document.getElementById("create-todo-button");
+    createTodoButton.style.visibility = "hidden";
+    const editTodoButton = document.getElementById("edit-todo-button");
+    editTodoButton.style.visibility = "visible";
+    console.log("in edit button");
     const currentTodo = activeProject.project.todos.find(e => e.id === todo.id);
     const title = document.getElementById("todo-title");
     title.value = currentTodo.title;
@@ -76,8 +81,6 @@ const displayTodo = (todo, index) => {
     notes.value = currentTodo.notes;
     const hiddenField = document.getElementById("edit-todo-id");
     hiddenField.value = currentTodo.id;
-    const btn = document.getElementById("todo-button");
-    btn.value = "Save Edits";
     activateEditTodoForm();
     toggleModal();
   };

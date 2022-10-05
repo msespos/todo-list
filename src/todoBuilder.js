@@ -20,7 +20,7 @@ const makeCounter = () => {
 let id = makeCounter();
 
 const activateCreateTodoForm = () => {
-  const createTodoButton = document.getElementById("todo-button");
+  const createTodoButton = document.getElementById("create-todo-button");
   createTodoButton.onclick = () => {
     const todo = Todo(document.getElementById("todo-title").value,
                       document.getElementById("todo-description").value,
@@ -31,6 +31,8 @@ const activateCreateTodoForm = () => {
     const hiddenField = document.getElementById("project-id");
     const projectId = parseInt(hiddenField.value);
     projects[projectId].todos.push(todo);
+    console.log("Created todo ID", todo.id)
+    console.log("Project after creating todo", projects[projectId])
     displayReset();
   };
 };
@@ -41,7 +43,7 @@ const activateEditTodoForm = () => {
   const todoHiddenField = document.getElementById("edit-todo-id");
   const todoId = parseInt(todoHiddenField.value);
   const todo = projects[projectId].todos[todoId];
-  const editTodoButton = document.getElementById("todo-button");
+  const editTodoButton = document.getElementById("edit-todo-button");
   editTodoButton.onclick = () => {
     todo.title = document.getElementById("todo-title").value,
     todo.description = document.getElementById("todo-description").value,
@@ -49,6 +51,8 @@ const activateEditTodoForm = () => {
     todo.priority = getSelectedPriority(),
     todo.notes = document.getElementById("todo-notes").value,
     projects[projectId].todos[todoId] = todo;
+    console.log("Edited todo ID", todoId);
+    console.log("Project after editing todo", projects[projectId])
     displayReset();
   };
 };
@@ -60,6 +64,8 @@ const deleteTodo = () => {
   const todoId = parseInt(todoHiddenField.value);
   const arrayIndexOfTodo = projects[projectId].todos.findIndex(e => e.id === todoId);
   projects[projectId].todos.splice(arrayIndexOfTodo, 1);
+  console.log("Deleted todo ID", todoId);
+  console.log("Project after deleting todo", projects[projectId])
   displayReset();
 };
 

@@ -1,7 +1,8 @@
 const todoModalHandlers = () => {
   const modal = document.querySelector(".todo-modal");
   const closeButton = document.querySelector(".todo-close-button");
-  const createTodoButton = document.querySelector("#todo-button");
+  const createTodoButton = document.querySelector("#create-todo-button");
+  const editTodoButton = document.querySelector("#edit-todo-button");
   const toggleModal = () => {
     modal.classList.toggle("show-modal");
   }
@@ -12,6 +13,7 @@ const todoModalHandlers = () => {
   }
   closeButton.addEventListener("click", toggleModal);
   createTodoButton.addEventListener("click", toggleModal);
+  editTodoButton.addEventListener("click", toggleModal);
   window.addEventListener("click", windowOnClick);
 }
 

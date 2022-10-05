@@ -31,8 +31,6 @@ const activateCreateTodoForm = () => {
     const hiddenField = document.getElementById("project-id");
     const projectId = parseInt(hiddenField.value);
     projects[projectId].todos.push(todo);
-    console.log("Created todo ID", todo.id)
-    console.log("Project after creating todo", projects[projectId])
     displayReset();
   };
 };
@@ -52,7 +50,6 @@ const activateEditTodoForm = () => {
     todo.priority = getSelectedPriority(),
     todo.notes = document.getElementById("todo-notes").value,
     projects[projectId].todos[arrayIndexOfTodo] = todo;
-    console.log("Project after editing todo", projects[projectId])
     displayReset();
   };
 };
@@ -64,8 +61,6 @@ const deleteTodo = () => {
   const todoId = parseInt(todoHiddenField.value);
   const arrayIndexOfTodo = projects[projectId].todos.findIndex(e => e.id === todoId);
   projects[projectId].todos.splice(arrayIndexOfTodo, 1);
-  console.log("Deleted todo ID", todoId);
-  console.log("Project after deleting todo", projects[projectId])
   displayReset();
 };
 

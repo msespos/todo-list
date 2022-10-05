@@ -60,7 +60,6 @@ const displayTodo = (todo, index) => {
     createTodoButton.style.visibility = "hidden";
     const editTodoButton = document.getElementById("edit-todo-button");
     editTodoButton.style.visibility = "visible";
-    console.log("in edit button");
     const title = document.getElementById("todo-title");
     title.value = currentTodo.title;
     const description = document.getElementById("todo-description");

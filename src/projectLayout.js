@@ -41,8 +41,6 @@ const displayNewTodoButton = () => {
     modal.classList.toggle("show-modal");
   };
   trigger.onclick = () => {
-    console.log("in new todo button")
-
     const title = document.getElementById("todo-title");
     title.value = "";
     const description = document.getElementById("todo-description");

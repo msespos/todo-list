@@ -21,10 +21,19 @@ const refreshProjectDisplay = () => {
 
 const activateCreateProjectForm = () => {
   const createProjectButton = document.getElementById("project-button");
+  // code snippet below for disabling Enter key adapted from
+  // https://tutorial.eyehunts.com/js/disable-enter-key-on-an-input-field-in-javascript-example-code/
+  const titleTextField = document.getElementById("project-title");
+  titleTextField.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
+  });
   createProjectButton.onclick = () => {
     const project = Project(document.getElementById("project-title").value, []);
     projects.push(project);
     refreshProjectDisplay();
+    createProjectButton.blur();
   }
 };
 

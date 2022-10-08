@@ -11,19 +11,20 @@
   <div id="content">
   </div>
   <div class="header">
-    WHATTA TODO
+    <h1>Whatta Todo</h1>
   </div>
   <div class="sidebar-and-active-project">
     <div class="sidebar">
       <div>
-        <button class="project-trigger">New Project</button>
+        <h2>Projects</h2>
+        <button class="project-trigger new-project-button">New Project</button>
         <div class="project-modal">
           <div class="project-modal-content">
             <span class="project-close-button">&times;</span>
             <form>
               <label for="project-title">Title:</label><br>
               <input type="text" id="project-title" name="title"><br>
-              <input type="button" id="project-button" value="Create Project">
+              <input type="button" class="button" id="project-button" value="Create Project">
             </form>
           </div>
         </div>
@@ -59,8 +60,8 @@
           <input type="radio" id="low-priority" name="todo-priority" value="low"><br><br>
           <label for="todo-notes">Notes:</label><br>
           <textarea id="todo-notes" name="notes" rows="8" cols="50"></textarea><br><br>
-          <input type="button" id="create-todo-button" value="Create Todo">
-          <input type="button" id="edit-todo-button" value="Save Edits">
+          <input type="button" class="button" id="create-todo-button" value="Create Todo">
+          <input type="button" class="button" id="edit-todo-button" value="Save Edits">
           <input type="hidden" id="project-id" name="project-id" value="">
           <input type="hidden" id="edit-todo-id" name="edit-todo-id" value="">
           <input type="hidden" id="delete-todo-id" name="delete-todo-id" value="">

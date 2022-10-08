@@ -21,6 +21,14 @@ let id = makeCounter();
 
 const activateCreateTodoForm = () => {
   const createTodoButton = document.getElementById("create-todo-button");
+  // code snippet below for disabling Enter key adapted from
+  // https://tutorial.eyehunts.com/js/disable-enter-key-on-an-input-field-in-javascript-example-code/
+  const titleTextField = document.getElementById("todo-title");
+  titleTextField.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
+  });
   createTodoButton.onclick = () => {
     const todo = Todo(document.getElementById("todo-title").value,
                       document.getElementById("todo-description").value,
@@ -32,6 +40,7 @@ const activateCreateTodoForm = () => {
     const projectId = parseInt(hiddenField.value);
     projects[projectId].todos.push(todo);
     displayReset();
+    createTodoButton.blur();
   };
 };
 
@@ -43,6 +52,14 @@ const activateEditTodoForm = () => {
   const arrayIndexOfTodo = projects[projectId].todos.findIndex(e => e.id === todoId);
   const todo = projects[projectId].todos[arrayIndexOfTodo];
   const editTodoButton = document.getElementById("edit-todo-button");
+  // code snippet below for disabling Enter key adapted from
+  // https://tutorial.eyehunts.com/js/disable-enter-key-on-an-input-field-in-javascript-example-code/
+  const titleTextField = document.getElementById("todo-title");
+  titleTextField.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
+  });
   editTodoButton.onclick = () => {
     todo.title = document.getElementById("todo-title").value,
     todo.description = document.getElementById("todo-description").value,
@@ -51,6 +68,7 @@ const activateEditTodoForm = () => {
     todo.notes = document.getElementById("todo-notes").value,
     projects[projectId].todos[arrayIndexOfTodo] = todo;
     displayReset();
+    editTodoButton.blur();
   };
 };
 

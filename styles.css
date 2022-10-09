@@ -51,6 +51,11 @@ h2 {
 h3 {
   font-family: CabinetGrotesk-Extrabold;
   font-size: x-large;
+  cursor: pointer;
+}
+
+h3:hover {
+  color: #729b79ff;
 }
 
 .sidebar-and-active-project {

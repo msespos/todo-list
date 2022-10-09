@@ -1,6 +1,6 @@
 import { displayTodoTitles } from './todoLayout';
 import { activeProject } from './index.js';
-import { refreshProjectDisplay } from './projectBuilder';
+import { refreshProjectDisplay, deleteProject, projects } from './projectBuilder';
 
 const clearProjectDisplay = () => {
   const titles = document.querySelectorAll('.project-title');
@@ -29,12 +29,22 @@ const displayActiveProject = () => {
   activeProjectTitle.textContent = activeProject.project.title;
   activeProjectDiv.appendChild(activeProjectTitle);
   displayTodoTitles(activeProject.project);
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("project-title");
+  deleteButton.textContent = "Delete Project";
+  deleteButton.onclick = () => {
+    const hiddenField = document.getElementById("project-id");
+    hiddenField.value = activeProject.index;
+    deleteProject();
+  }
+  activeProjectDiv.appendChild(deleteButton);
 }
 
 const displayNewTodoButton = () => {
   const div = document.querySelector(".active-project");
   const trigger = document.createElement("button");
   trigger.textContent = "New Todo";
+  trigger.classList.add("new-todo-button");
   div.appendChild(trigger);
   const modal = document.querySelector(".todo-modal");
   const toggleModal = () => {
@@ -70,7 +80,7 @@ const displayInactiveProjects = (projects) => {
     title.onclick = () => {
       activeProject.project = project;
       activeProject.index = index;
-      refreshProjectDisplay();
+      refreshProjectDisplay(projects);
     }
   });
 };

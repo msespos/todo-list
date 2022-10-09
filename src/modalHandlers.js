@@ -21,7 +21,8 @@ const projectModalHandlers = () => {
   const modal = document.querySelector(".project-modal");
   const trigger = document.querySelector(".project-trigger");
   const closeButton = document.querySelector(".project-close-button");
-  const createProjectButton = document.querySelector("#project-button");
+  const createProjectButton = document.querySelector("#create-project-button");
+  const editProjectButton = document.querySelector("#edit-project-button");
   const toggleModal = () => {
     modal.classList.toggle("show-modal");
   }
@@ -33,6 +34,7 @@ const projectModalHandlers = () => {
   trigger.addEventListener("click", toggleModal);
   closeButton.addEventListener("click", toggleModal);
   createProjectButton.addEventListener("click", toggleModal);
+  editProjectButton.addEventListener("click", toggleModal);
   window.addEventListener("click", windowOnClick);
 }
 

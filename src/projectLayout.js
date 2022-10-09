@@ -72,7 +72,7 @@ const displayNewTodoButton = () => {
 const displayInactiveProjects = (projects) => {
   projects.forEach((project, index) => {
     const div = document.querySelector(".sidebar")
-    const title = document.createElement("div");
+    const title = document.createElement("h3");
     title.classList.add("project-title");
     title.id = "project-title-" + index;
     title.textContent = project.title;

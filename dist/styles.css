@@ -48,6 +48,11 @@ h2 {
   font-size: xx-large;
 }
 
+h3 {
+  font-family: CabinetGrotesk-Extrabold;
+  font-size: x-large;
+}
+
 .sidebar-and-active-project {
   border: 7px solid #bacdb0ff;
   display: flex;

@@ -25,7 +25,7 @@ const clearActiveProject = () => {
 
 const displayActiveProject = () => {
   const activeProjectDiv = document.querySelector(".active-project");
-  const activeProjectTitle = document.createElement("div");
+  const activeProjectTitle = document.createElement("h3");
   activeProjectTitle.textContent = activeProject.project.title;
   activeProjectDiv.appendChild(activeProjectTitle);
   displayTodoTitles(activeProject.project);

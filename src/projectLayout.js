@@ -1,6 +1,6 @@
 import { displayTodoTitles } from './todoLayout';
 import { activeProject } from './index.js';
-import { refreshProjectDisplay, deleteProject, projects } from './projectBuilder';
+import { refreshProjectDisplay, deleteProject, activateEditProjectForm } from './projectBuilder';
 
 const clearProjectDisplay = () => {
   const titles = document.querySelectorAll('.project-title');
@@ -29,6 +29,24 @@ const displayActiveProject = () => {
   activeProjectTitle.textContent = activeProject.project.title;
   activeProjectDiv.appendChild(activeProjectTitle);
   displayTodoTitles(activeProject.project);
+  const editButton = document.createElement("button");
+  const modal = document.querySelector(".project-modal");
+  const toggleModal = () => {
+    modal.classList.toggle("show-modal");
+  };
+  editButton.classList.add("project-title");
+  editButton.textContent = "Edit Project Title";
+  editButton.onclick = () => {
+    const createProjectButton = document.getElementById("create-project-button");
+    createProjectButton.style.visibility = "hidden";
+    const editProjectButton = document.getElementById("edit-project-button");
+    editProjectButton.style.visibility = "visible";
+    const hiddenField = document.getElementById("project-id");
+    hiddenField.value = activeProject.index;
+    activateEditProjectForm();
+    toggleModal();
+  }
+  activeProjectDiv.appendChild(editButton);
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("project-title");
   deleteButton.textContent = "Delete Project";
@@ -59,8 +77,8 @@ const displayNewTodoButton = () => {
     highPriority.checked = true;
     const notes = document.getElementById("todo-notes");
     notes.value = "";
-    const btn = document.getElementById("create-todo-button");
-    btn.style.visibility = "visible";
+    const createTodoButton = document.getElementById("create-todo-button");
+    createTodoButton.style.visibility = "visible";
     const editTodoButton = document.getElementById("edit-todo-button");
     editTodoButton.style.visibility = "hidden";
     const hiddenField = document.getElementById("project-id");

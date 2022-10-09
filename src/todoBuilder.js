@@ -39,7 +39,7 @@ const activateCreateTodoForm = () => {
     const hiddenField = document.getElementById("project-id");
     const projectId = parseInt(hiddenField.value);
     projects[projectId].todos.push(todo);
-    displayReset();
+    displayReset(projects);
     createTodoButton.blur();
   };
 };
@@ -67,7 +67,7 @@ const activateEditTodoForm = () => {
     todo.priority = getSelectedPriority(),
     todo.notes = document.getElementById("todo-notes").value,
     projects[projectId].todos[arrayIndexOfTodo] = todo;
-    displayReset();
+    displayReset(projects);
     editTodoButton.blur();
   };
 };
@@ -79,7 +79,7 @@ const deleteTodo = () => {
   const todoId = parseInt(todoHiddenField.value);
   const arrayIndexOfTodo = projects[projectId].todos.findIndex(e => e.id === todoId);
   projects[projectId].todos.splice(arrayIndexOfTodo, 1);
-  displayReset();
+  displayReset(projects);
 };
 
 const getSelectedPriority = () => {
@@ -93,7 +93,7 @@ const getSelectedPriority = () => {
   return selectedPriority;
 };
 
-const displayReset = () => {
+const displayReset = (projects) => {
   clearTodoTitleDisplay();
   clearProjectDisplay();
   displayProjects(projects);

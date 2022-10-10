@@ -33,7 +33,7 @@ const activateCreateProjectForm = () => {
   createProjectButton.onclick = () => {
     let title = document.getElementById("project-title").value;
     if (title === "") {
-      alert("You need a title! Please try again.")
+      alert("You need a title! Please try again.");
     } else {
       const project = Project(title, []);
       projects.push(project);
@@ -62,7 +62,7 @@ const activateEditProjectForm = () => {
   editProjectButton.onclick = () => {
     let titleTextField = document.getElementById("project-title");
     if (titleTextField.value === "") {
-      alert("You need a new title! Please try again.")
+      alert("You need a new title! Please try again.");
     } else {
       project.title = titleTextField.value;
       projects[projectId] = project;

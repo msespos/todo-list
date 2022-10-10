@@ -31,11 +31,16 @@ const activateCreateProjectForm = () => {
     }
   });
   createProjectButton.onclick = () => {
-    const project = Project(document.getElementById("project-title").value, []);
-    projects.push(project);
-    activeProject.project = project;
-    refreshProjectDisplay(projects);
-    createProjectButton.blur();
+    let title = document.getElementById("project-title").value;
+    if (title === "") {
+      alert("You need a title! Please try again.")
+    } else {
+      const project = Project(title, []);
+      projects.push(project);
+      activeProject.project = project;
+      refreshProjectDisplay(projects);
+      createProjectButton.blur();
+    }
   }
 };
 
@@ -53,10 +58,15 @@ const activateEditProjectForm = () => {
     }
   });
   editProjectButton.onclick = () => {
-    project.title = document.getElementById("project-title").value;
-    projects[projectId] = project;
-    refreshProjectDisplay(projects);
-    editProjectButton.blur();
+    let title = document.getElementById("project-title").value;
+    if (title === "") {
+      alert("You need a title! Please try again.")
+    } else {
+      project.title = title;
+      projects[projectId] = project;
+      refreshProjectDisplay(projects);
+      editProjectButton.blur();
+    }
   }
 };
 

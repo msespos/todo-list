@@ -22,9 +22,6 @@ const refreshProjectDisplay = (projects) => {
 
 const activateCreateProjectForm = () => {
   const createProjectButton = document.getElementById("create-project-button");
-    createProjectButton.style.visibility = "visible";
-    const editProjectButton = document.getElementById("edit-project-button");
-    editProjectButton.style.visibility = "hidden";
   // code snippet below for disabling Enter key adapted from
   // https://tutorial.eyehunts.com/js/disable-enter-key-on-an-input-field-in-javascript-example-code/
   const titleTextField = document.getElementById("project-title");
@@ -43,7 +40,7 @@ const activateCreateProjectForm = () => {
 };
 
 const activateEditProjectForm = () => {
-  const projectHiddenField = document.getElementById("project-id");
+  const projectHiddenField = document.getElementById("edit-project-id");
   const projectId = parseInt(projectHiddenField.value);
   const project = projects[projectId];
   const editProjectButton = document.getElementById("edit-project-button");
@@ -64,8 +61,7 @@ const activateEditProjectForm = () => {
 };
 
 const deleteProject = () => {
-  const projectHiddenField = document.getElementById("project-id");
-  const projectId = parseInt(projectHiddenField.value);
+  const projectId = activeProject.index;
   projects.splice(projectId, 1);
   if (projects.length === 0) {
     activeProject.project = createFirstProject();

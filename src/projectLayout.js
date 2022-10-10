@@ -107,4 +107,4 @@ const displayInactiveProjects = (projects) => {
   });
 };
 
-export { clearProjectDisplay, displayProjects }
+export { clearProjectDisplay, displayProjects, activeProject }

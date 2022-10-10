@@ -38,6 +38,7 @@ const activateCreateProjectForm = () => {
       const project = Project(title, []);
       projects.push(project);
       activeProject.project = project;
+      activeProject.index = projects.findIndex(e => e === project);
       refreshProjectDisplay(projects);
       createProjectButton.blur();
     }
@@ -77,6 +78,7 @@ const deleteProject = () => {
     activeProject.project = createFirstProject();
   }
   activeProject.project = projects[0];
+  activeProject.index = 0;
   refreshProjectDisplay(projects);
 };
 

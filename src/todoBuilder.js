@@ -30,17 +30,22 @@ const activateCreateTodoForm = () => {
     }
   });
   createTodoButton.onclick = () => {
-    const todo = Todo(document.getElementById("todo-title").value,
-                      document.getElementById("todo-description").value,
-                      document.getElementById("todo-due-date").value,
-                      getSelectedPriority(),
-                      document.getElementById("todo-notes").value,
-                      id());
-    const hiddenField = document.getElementById("create-project-id");
-    const projectId = parseInt(hiddenField.value);
-    projects[projectId].todos.push(todo);
-    displayReset(projects);
-    createTodoButton.blur();
+    const title = document.getElementById("todo-title").value;
+    if (title === "") {
+      alert("You need a title! Please try again.");
+    } else {
+      const todo = Todo(document.getElementById("todo-title").value,
+                        document.getElementById("todo-description").value,
+                        document.getElementById("todo-due-date").value,
+                        getSelectedPriority(),
+                        document.getElementById("todo-notes").value,
+                        id());
+      const hiddenField = document.getElementById("create-project-id");
+      const projectId = parseInt(hiddenField.value);
+      projects[projectId].todos.push(todo);
+      displayReset(projects);
+      createTodoButton.blur();
+    }
   };
 };
 
@@ -60,14 +65,19 @@ const activateEditTodoForm = () => {
     }
   });
   editTodoButton.onclick = () => {
-    todo.title = document.getElementById("todo-title").value,
-    todo.description = document.getElementById("todo-description").value,
-    todo.dueDate = document.getElementById("todo-due-date").value,
-    todo.priority = getSelectedPriority(),
-    todo.notes = document.getElementById("todo-notes").value,
-    projects[projectId].todos[arrayIndexOfTodo] = todo;
-    displayReset(projects);
-    editTodoButton.blur();
+    const title = document.getElementById("todo-title").value;
+    if (title === "") {
+      alert("You need a title! Please try again.");
+    } else {
+      todo.title = document.getElementById("todo-title").value,
+      todo.description = document.getElementById("todo-description").value,
+      todo.dueDate = document.getElementById("todo-due-date").value,
+      todo.priority = getSelectedPriority(),
+      todo.notes = document.getElementById("todo-notes").value,
+      projects[projectId].todos[arrayIndexOfTodo] = todo;
+      displayReset(projects);
+      editTodoButton.blur();
+    }
   };
 };
 

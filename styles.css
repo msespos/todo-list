@@ -137,10 +137,15 @@ h3:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #4d4730ff;
-  padding: 1rem 1.5rem;
-  width: 28rem;
-  height: 32rem;
+  padding: 1.5rem;
+  width: 32rem;
+  height: 36rem;
   border-radius: 0.5rem;
+}
+
+.project-modal-content {
+  width: 28rem;
+  height: 5rem;
 }
 
 .todo-close-button, .project-close-button {

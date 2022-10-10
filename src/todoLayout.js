@@ -40,14 +40,20 @@ const clearTodo = () => {
 
 const displayTodo = (todo, index) => {
   const div = document.getElementById("todo-title-" + index);
+  const todoAttributesDiv = document.createElement("div");
+  todoAttributesDiv.classList.add("todo");
   const todoAttributes = [todo.description, todo.dueDate, todo.priority, todo.notes];
   todoAttributes.forEach((todoAttribute) => {
     const attribute = document.createElement("div");
     attribute.textContent = todoAttribute;
     attribute.classList.add("todo");
-    div.appendChild(attribute);
+    todoAttributesDiv.appendChild(attribute);
   });
+  const buttonsDiv = document.createElement("div");
+  buttonsDiv.classList.add("todo");
+  buttonsDiv.classList.add("todo-edit-and-delete-buttons");
   const editButton = document.createElement("button");
+  editButton.id = "todo-edit-button";
   const modal = document.querySelector(".todo-modal");
   const toggleModal = () => {
     modal.classList.toggle("show-modal");
@@ -83,7 +89,7 @@ const displayTodo = (todo, index) => {
     activateEditTodoForm();
     toggleModal();
   };
-  div.appendChild(editButton);
+  buttonsDiv.appendChild(editButton);
   const deleteButton = document.createElement("button");
   deleteButton.id = "todo-delete-button";
   deleteButton.classList.add("todo");
@@ -94,7 +100,8 @@ const displayTodo = (todo, index) => {
     e.stopPropagation();
     deleteTodo();
   };
-  div.appendChild(deleteButton);
+  buttonsDiv.appendChild(deleteButton);
+  div.append(todoAttributesDiv, buttonsDiv);
 };
 
 export { clearTodoTitleDisplay, displayTodoTitles }

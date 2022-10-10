@@ -1,5 +1,5 @@
 import { clearProjectDisplay, displayProjects } from './projectLayout';
-import { projects } from './projectBuilder'
+import { activeProject, projects } from './projectBuilder'
 import { clearTodoTitleDisplay } from './todoLayout';
 import { setDateToToday } from './setDateToToday';
 
@@ -36,7 +36,7 @@ const activateCreateTodoForm = () => {
                       getSelectedPriority(),
                       document.getElementById("todo-notes").value,
                       id());
-    const hiddenField = document.getElementById("project-id");
+    const hiddenField = document.getElementById("create-project-id");
     const projectId = parseInt(hiddenField.value);
     projects[projectId].todos.push(todo);
     displayReset(projects);
@@ -45,8 +45,7 @@ const activateCreateTodoForm = () => {
 };
 
 const activateEditTodoForm = () => {
-  const projectHiddenField = document.getElementById("project-id");
-  const projectId = parseInt(projectHiddenField.value);
+  const projectId = activeProject.index;
   const todoHiddenField = document.getElementById("edit-todo-id");
   const todoId = parseInt(todoHiddenField.value);
   const arrayIndexOfTodo = projects[projectId].todos.findIndex(e => e.id === todoId);
@@ -73,8 +72,7 @@ const activateEditTodoForm = () => {
 };
 
 const deleteTodo = () => {
-  const projectHiddenField = document.getElementById("project-id");
-  const projectId = parseInt(projectHiddenField.value);
+  const projectId = activeProject.index;
   const todoHiddenField = document.getElementById("delete-todo-id");
   const todoId = parseInt(todoHiddenField.value);
   const arrayIndexOfTodo = projects[projectId].todos.findIndex(e => e.id === todoId);

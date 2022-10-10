@@ -53,21 +53,23 @@ const activateEditProjectForm = () => {
   // code snippet below for disabling Enter key adapted from
   // https://tutorial.eyehunts.com/js/disable-enter-key-on-an-input-field-in-javascript-example-code/
   const titleTextField = document.getElementById("project-title");
+  titleTextField.value = activeProject.project.title;
   titleTextField.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
       event.preventDefault();
     }
   });
   editProjectButton.onclick = () => {
-    let title = document.getElementById("project-title").value;
-    if (title === "") {
-      alert("You need a title! Please try again.")
+    let titleTextField = document.getElementById("project-title");
+    if (titleTextField.value === "") {
+      alert("You need a new title! Please try again.")
     } else {
-      project.title = title;
+      project.title = titleTextField.value;
       projects[projectId] = project;
       refreshProjectDisplay(projects);
       editProjectButton.blur();
     }
+    titleTextField.value = "";
   }
 };
 

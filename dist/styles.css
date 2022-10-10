@@ -62,13 +62,12 @@ h3:hover {
   border: 7px solid #bacdb0ff;
   display: flex;
   height: 100%;
-  font-size: large;
 }
 
 .sidebar {
   border-right: 7px solid #bacdb0ff;
   flex: 1;
-  padding: 20px;
+  padding: 30px;
 }
 
 .active-project-and-todos {
@@ -77,8 +76,10 @@ h3:hover {
 
 .active-project {
   border-bottom: 7px solid #bacdb0ff;
-  padding: 20px;
-  font-size: xx-large;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
 }
 
 .active-projects-todos {
@@ -93,9 +94,17 @@ h3:hover {
   padding: 5px;
 }
 
-.project-title {
+.edit-project-button, .delete-project-button {
+  font-size: medium;
+  height: 30px;
+}
+
+.new-todo-button {
+  padding: 10px;
   font-size: large;
 }
+
+
 
 /* modal css from https://sabe.io/tutorials/how-to-create-modal-popup-box */
 .todo-modal, .project-modal {
@@ -123,7 +132,7 @@ h3:hover {
   border-radius: 0.5rem;
 }
 
-.todo-close-button {
+.todo-close-button, .project-close-button {
   float: right;
   width: 1.5rem;
   line-height: 1.5rem;

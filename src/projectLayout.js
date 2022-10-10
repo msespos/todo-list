@@ -12,6 +12,7 @@ const clearProjectDisplay = () => {
 const displayProjects = (projects) => {
   clearActiveProject();
   displayActiveProject();
+  clearNewTodoButton();
   displayNewTodoButton();
   displayInactiveProjects(projects);
 };
@@ -20,6 +21,13 @@ const clearActiveProject = () => {
   const project = document.querySelector(".active-project");
   while (project.firstChild) {
     project.removeChild(project.firstChild);
+  }
+}
+
+const clearNewTodoButton = () => {
+  if (document.querySelector(".new-todo-button")) {
+    const button = document.querySelector(".new-todo-button");
+    button.remove();
   }
 }
 
@@ -34,7 +42,7 @@ const displayActiveProject = () => {
   const toggleModal = () => {
     modal.classList.toggle("show-modal");
   };
-  editButton.classList.add("project-title");
+  editButton.classList.add("edit-project-button");
   editButton.textContent = "Edit Project Title";
   editButton.onclick = () => {
     const createProjectButton = document.getElementById("create-project-button");
@@ -48,7 +56,7 @@ const displayActiveProject = () => {
   }
   activeProjectDiv.appendChild(editButton);
   const deleteButton = document.createElement("button");
-  deleteButton.classList.add("project-title");
+  deleteButton.classList.add("delete-project-button");
   deleteButton.textContent = "Delete Project";
   deleteButton.onclick = () => {
     const hiddenField = document.getElementById("delete-project-id");
@@ -63,7 +71,7 @@ const displayActiveProject = () => {
 }
 
 const displayNewTodoButton = () => {
-  const div = document.querySelector(".active-project");
+  const div = document.querySelector(".active-projects-todos");
   const trigger = document.createElement("button");
   trigger.textContent = "New Todo";
   trigger.classList.add("new-todo-button");

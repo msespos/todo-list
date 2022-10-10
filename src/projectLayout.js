@@ -25,7 +25,7 @@ const clearActiveProject = () => {
 
 const displayActiveProject = () => {
   const activeProjectDiv = document.querySelector(".active-project");
-  const activeProjectTitle = document.createElement("h3");
+  const activeProjectTitle = document.createElement("h2");
   activeProjectTitle.textContent = activeProject.project.title;
   activeProjectDiv.appendChild(activeProjectTitle);
   displayTodoTitles(activeProject.project);
@@ -41,7 +41,7 @@ const displayActiveProject = () => {
     createProjectButton.style.visibility = "hidden";
     const editProjectButton = document.getElementById("edit-project-button");
     editProjectButton.style.visibility = "visible";
-    const hiddenField = document.getElementById("project-id");
+    const hiddenField = document.getElementById("edit-project-id");
     hiddenField.value = activeProject.index;
     activateEditProjectForm();
     toggleModal();
@@ -51,11 +51,15 @@ const displayActiveProject = () => {
   deleteButton.classList.add("project-title");
   deleteButton.textContent = "Delete Project";
   deleteButton.onclick = () => {
-    const hiddenField = document.getElementById("project-id");
+    const hiddenField = document.getElementById("delete-project-id");
     hiddenField.value = activeProject.index;
     deleteProject();
   }
   activeProjectDiv.appendChild(deleteButton);
+  const createProjectButton = document.getElementById("create-project-button");
+  createProjectButton.style.visibility = "visible";
+  const editProjectButton = document.getElementById("edit-project-button");
+  editProjectButton.style.visibility = "hidden";
 }
 
 const displayNewTodoButton = () => {
@@ -81,7 +85,7 @@ const displayNewTodoButton = () => {
     createTodoButton.style.visibility = "visible";
     const editTodoButton = document.getElementById("edit-todo-button");
     editTodoButton.style.visibility = "hidden";
-    const hiddenField = document.getElementById("project-id");
+    const hiddenField = document.getElementById("create-project-id");
     hiddenField.value = activeProject.index;
     toggleModal();
   };

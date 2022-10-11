@@ -90,12 +90,17 @@ h3:hover {
 
 .active-project-todo {
   border: 2px solid #bacdb0ff;
+  background-color: #4d4730ff;
   display: flex;
   justify-content: space-between;
   gap: 30px;
   margin: 30px 20px 0px;
   padding: 5px;
   max-width: 630px;
+}
+
+.todo {
+  background-color: #4d4730ff;
 }
 
 .edit-project-button, .delete-project-button {
@@ -105,6 +110,7 @@ h3:hover {
 
 #todo-edit-button, #todo-delete-button {
   max-width: 50px;
+  background-color: #3e363fff;
 }
 
 .todo-edit-and-delete-buttons {

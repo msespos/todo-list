@@ -1,6 +1,6 @@
 import { clearProjectDisplay, displayProjects } from './projectLayout';
 import { activeProject, projects } from './projectBuilder'
-import { clearTodoTitleDisplay } from './todoLayout';
+import { clearTodoTitleDisplay, toggleTodo } from './todoLayout';
 import { setDateToToday } from './setDateToToday';
 
 const Todo = (title, description, dueDate, priority, notes, id) => {
@@ -81,6 +81,7 @@ const activateEditTodoForm = () => {
       projects[projectId].todos[arrayIndexOfTodo] = todo;
       displayReset(projects);
       editTodoButton.blur();
+      toggleTodo(todo, arrayIndexOfTodo);
     }
   };
 };

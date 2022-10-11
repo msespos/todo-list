@@ -105,4 +105,4 @@ const displayTodo = (todo, index) => {
   div.append(todoAttributesDiv, buttonsDiv);
 };
 
-export { clearTodoTitleDisplay, displayTodoTitles }
+export { clearTodoTitleDisplay, displayTodoTitles, toggleTodo }

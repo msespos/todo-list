@@ -132,7 +132,7 @@ h3:hover {
   height: 100%;
   background-color: rgb(114, 155, 121, 0.5);
   opacity: 0;
-  visibility: hidden;
+  display: none;
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
@@ -171,7 +171,7 @@ h3:hover {
 
 .show-modal {
   opacity: 1;
-  visibility: visible;
+  display: block;
   transform: scale(1.0);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; 
 }

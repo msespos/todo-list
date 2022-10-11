@@ -30,9 +30,11 @@ const activateCreateTodoForm = () => {
     }
   });
   createTodoButton.onclick = () => {
-    const title = document.getElementById("todo-title").value;
-    if (title === "") {
+    let title = document.getElementById("todo-title");
+    if (title.value === "") {
+      title.value = "New Title";
       alert("You need a title! Please try again.");
+      createTodoButton.click();
     } else {
       const todo = Todo(document.getElementById("todo-title").value,
                         document.getElementById("todo-description").value,

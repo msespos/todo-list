@@ -63,9 +63,9 @@ const displayTodo = (todo, index) => {
   const currentTodo = activeProject.project.todos.find(e => e.id === todo.id);
   editButton.onclick = () => {
     const createTodoButton = document.getElementById("create-todo-button");
-    createTodoButton.style.visibility = "hidden";
+    createTodoButton.style.display = "none";
     const editTodoButton = document.getElementById("edit-todo-button");
-    editTodoButton.style.visibility = "visible";
+    editTodoButton.style.display = "block";
     const title = document.getElementById("todo-title");
     title.value = currentTodo.title;
     const description = document.getElementById("todo-description");

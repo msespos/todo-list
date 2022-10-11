@@ -46,9 +46,9 @@ const displayActiveProject = () => {
   editButton.textContent = "Edit Project Title";
   editButton.onclick = () => {
     const createProjectButton = document.getElementById("create-project-button");
-    createProjectButton.style.visibility = "hidden";
+    createProjectButton.style.display = "none";
     const editProjectButton = document.getElementById("edit-project-button");
-    editProjectButton.style.visibility = "visible";
+    editProjectButton.style.display = "block";
     const hiddenField = document.getElementById("edit-project-id");
     hiddenField.value = activeProject.index;
     activateEditProjectForm();
@@ -65,9 +65,9 @@ const displayActiveProject = () => {
   }
   activeProjectDiv.appendChild(deleteButton);
   const createProjectButton = document.getElementById("create-project-button");
-  createProjectButton.style.visibility = "visible";
+  createProjectButton.style.display = "block";
   const editProjectButton = document.getElementById("edit-project-button");
-  editProjectButton.style.visibility = "hidden";
+  editProjectButton.style.display = "none";
 }
 
 const displayNewTodoButton = () => {
@@ -90,9 +90,9 @@ const displayNewTodoButton = () => {
     const notes = document.getElementById("todo-notes");
     notes.value = "";
     const createTodoButton = document.getElementById("create-todo-button");
-    createTodoButton.style.visibility = "visible";
+    createTodoButton.style.display = "block";
     const editTodoButton = document.getElementById("edit-todo-button");
-    editTodoButton.style.visibility = "hidden";
+    editTodoButton.style.display = "none";
     const hiddenField = document.getElementById("create-project-id");
     hiddenField.value = activeProject.index;
     toggleModal();

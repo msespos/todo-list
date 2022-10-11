@@ -1,11 +1,11 @@
 @font-face {
   font-family: CabinetGrotesk-Extrabold;
-  src: url(../fonts/CabinetGrotesk_Complete/Fonts/OTF/CabinetGrotesk-Extrabold.otf)
+  src: url(./fonts/CabinetGrotesk_Complete/Fonts/OTF/CabinetGrotesk-Extrabold.otf)
 }
 
 @font-face {
   font-family: Satoshi-Medium;
-  src: url(../fonts/Satoshi_Complete/Fonts/OTF/Satoshi-Medium.otf)
+  src: url(./fonts/Satoshi_Complete/Fonts/OTF/Satoshi-Medium.otf)
 }
 
 /* lavender-blush #f3e8eeff

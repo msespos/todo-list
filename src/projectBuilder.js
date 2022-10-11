@@ -69,7 +69,6 @@ const activateEditProjectForm = () => {
       refreshProjectDisplay(projects);
       editProjectButton.blur();
     }
-    titleTextField.value = "";
   }
 };
 

@@ -10,6 +10,7 @@ refreshProjectDisplay(projects);
 todoModalHandlers();
 projectModalHandlers();
 activateCreateTodoForm();
+document.getElementById("project-title").value = "";
 activateCreateProjectForm();
 
 export { activeProject }

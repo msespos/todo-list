@@ -88,6 +88,7 @@ const displayTodo = (todo, index) => {
     hiddenField.value = currentTodo.id;
     activateEditTodoForm();
     toggleModal();
+    title.focus();
   };
   buttonsDiv.appendChild(editButton);
   const deleteButton = document.createElement("button");

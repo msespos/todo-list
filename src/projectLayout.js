@@ -96,6 +96,7 @@ const displayNewTodoButton = () => {
     const hiddenField = document.getElementById("create-project-id");
     hiddenField.value = activeProject.index;
     toggleModal();
+    title.focus();
   };
 };
 

@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { format } from 'date-fns';
 
 const setDateToToday = () => {
   const dateInput = document.getElementById('todo-due-date');

@@ -161,11 +161,12 @@ h3:hover {
   text-align: center;
   cursor: pointer;
   border-radius: 0.25rem;
-  background-color: lightgray;
+  color: #3e363fff;
+  background-color: #bacdb0ff;
 }
 
-.close-button:hover {
-  background-color: darkgray;
+.todo-close-button:hover, .project-close-button:hover {
+  background-color: #729b79ff;
 }
 
 .show-modal {

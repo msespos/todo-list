@@ -65,9 +65,11 @@ const activateEditTodoForm = () => {
     }
   });
   editTodoButton.onclick = () => {
-    const title = document.getElementById("todo-title").value;
-    if (title === "") {
+    let title = document.getElementById("todo-title");
+    if (title.value === "") {
+      title.value = "New Title";
       alert("You need a title! Please try again.");
+      editTodoButton.click();
     } else {
       todo.title = document.getElementById("todo-title").value,
       todo.description = document.getElementById("todo-description").value,

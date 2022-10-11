@@ -31,7 +31,11 @@ const projectModalHandlers = () => {
       toggleModal();
     }
   }
-  trigger.addEventListener("click", toggleModal);
+  trigger.addEventListener("click", () => {
+    let titleTextField = document.getElementById("project-title");
+    titleTextField.value = "";
+    toggleModal();
+  });
   closeButton.addEventListener("click", toggleModal);
   createProjectButton.addEventListener("click", toggleModal);
   editProjectButton.addEventListener("click", toggleModal);

@@ -12,10 +12,21 @@ const displayTodoTitles = (project) => {
   project.todos.forEach((todo, index) => {
     const div = document.querySelector(".active-projects-todos");
     const title = document.createElement("div");
-    title.classList.add("active-project-todo");
-    title.classList.add("todo-title");
     title.id = "todo-title-" + index;
     title.textContent = todo.title;
+    title.classList.add("active-project-todo");
+    title.classList.add("todo-title");
+    const priority = document.createElement("div")
+    priority.textContent = todo.priority;
+    priority.classList.add("priority-indicator");
+    if (todo.priority === "high") {
+      priority.classList.add("high-priority-indicator");
+    } else if (todo.priority === "medium") {
+      priority.classList.add("medium-priority-indicator");
+    } else {
+      priority.classList.add("low-priority-indicator");
+    }
+    title.appendChild(priority);
     div.appendChild(title);
     title.onclick = () => {
       toggleTodo(todo, index);
@@ -42,7 +53,7 @@ const displayTodo = (todo, index) => {
   const div = document.getElementById("todo-title-" + index);
   const todoAttributesDiv = document.createElement("div");
   todoAttributesDiv.classList.add("todo");
-  const todoAttributes = [todo.description, todo.dueDate, todo.priority, todo.notes];
+  const todoAttributes = [todo.description, todo.dueDate, todo.notes];
   todoAttributes.forEach((todoAttribute) => {
     const attribute = document.createElement("div");
     attribute.textContent = todoAttribute;

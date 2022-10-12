@@ -99,6 +99,22 @@ h3:hover {
   max-width: 630px;
 }
 
+.priority-indicator {
+  background-color: #4d4730ff;
+}
+
+.high-priority-indicator {
+  color: rgb(255, 128, 128);
+}
+
+.medium-priority-indicator {
+  color: rgb(255, 255, 128);
+}
+
+.low-priority-indicator {
+  color: rgb(128, 255, 128);
+}
+
 .todo {
   background-color: #4d4730ff;
 }

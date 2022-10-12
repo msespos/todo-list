@@ -32,7 +32,6 @@ const activateCreateTodoForm = () => {
   createTodoButton.onclick = () => {
     let title = document.getElementById("todo-title");
     if (title.value === "") {
-      title.value = "New Title";
       alert("You need a title! Please try again.");
       const modal = document.querySelector(".todo-modal");
       const toggleModal = () => {
@@ -73,7 +72,6 @@ const activateEditTodoForm = () => {
   editTodoButton.onclick = () => {
     let title = document.getElementById("todo-title");
     if (title.value === "") {
-      title.value = "New Title";
       alert("You need a title! Please try again.");
       const modal = document.querySelector(".todo-modal");
       const toggleModal = () => {

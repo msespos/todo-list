@@ -34,7 +34,11 @@ const activateCreateTodoForm = () => {
     if (title.value === "") {
       title.value = "New Title";
       alert("You need a title! Please try again.");
-      createTodoButton.click();
+      const modal = document.querySelector(".todo-modal");
+      const toggleModal = () => {
+        modal.classList.toggle("show-modal");
+      };
+      toggleModal();
     } else {
       const todo = Todo(document.getElementById("todo-title").value,
                         document.getElementById("todo-description").value,
@@ -71,7 +75,11 @@ const activateEditTodoForm = () => {
     if (title.value === "") {
       title.value = "New Title";
       alert("You need a title! Please try again.");
-      editTodoButton.click();
+      const modal = document.querySelector(".todo-modal");
+      const toggleModal = () => {
+        modal.classList.toggle("show-modal");
+      };
+      toggleModal();
     } else {
       todo.title = document.getElementById("todo-title").value,
       todo.description = document.getElementById("todo-description").value,

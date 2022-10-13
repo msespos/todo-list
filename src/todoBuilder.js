@@ -3,8 +3,8 @@ import { activeProject, projects } from './projectBuilder'
 import { clearTodoTitleDisplay, toggleTodo } from './todoLayout';
 import { setDateToToday } from './setDateToToday';
 
-const Todo = (title, description, dueDate, priority, notes, id) => {
-  return { title, description, dueDate, priority, notes, id }
+const Todo = (title, description, dueDate, priority, notes, completed, id) => {
+  return { title, description, dueDate, priority, notes, completed, id }
 };
 
 // makeCounter adapted from
@@ -45,6 +45,7 @@ const activateCreateTodoForm = () => {
                         document.getElementById("todo-due-date").value,
                         getSelectedPriority(),
                         document.getElementById("todo-notes").value,
+                        false,
                         id());
       const hiddenField = document.getElementById("create-project-id");
       const projectId = parseInt(hiddenField.value);

@@ -21,14 +21,6 @@ const displayTodoTitles = (project) => {
     title.classList.add("active-project-todo");
     title.classList.add("todo-title");
     container.appendChild(title);
-    const toggleButton = document.createElement("button");
-    toggleButton.textContent = "Show/Hide Todo";
-    toggleButton.classList.add("todo-show-hide-button");
-    toggleButton.classList.add("todo-title");
-    toggleButton.onclick = () => {
-      toggleTodo(todo, index);
-    }
-    container.appendChild(toggleButton);
     const priority = document.createElement("div");
     priority.textContent = "Priority: " + todo.priority;
     priority.classList.add("priority-indicator");
@@ -39,7 +31,41 @@ const displayTodoTitles = (project) => {
     } else {
       priority.classList.add("low-priority-indicator");
     }
-    title.appendChild(priority);
+    const toggleButton = document.createElement("button");
+    toggleButton.textContent = "Show/Hide Todo";
+    toggleButton.classList.add("todo-show-hide-button");
+    toggleButton.classList.add("todo-title");
+    toggleButton.onclick = () => {
+      toggleTodo(todo, index);
+    }
+    container.appendChild(toggleButton);
+    const completedButton = document.createElement("button");
+    if (todo.completed === false) {
+      completedButton.textContent = "Mark Completed";
+      title.appendChild(priority);
+      title.classList.remove("completed-title");
+    } else {
+      completedButton.textContent = "Mark Incomplete";
+      title.textContent = todo.title + " - COMPLETED";
+      title.classList.add("completed-title");
+    }
+    completedButton.classList.add("todo-show-hide-button");
+    completedButton.classList.add("todo-title");
+    completedButton.onclick = () => {
+      if (todo.completed === false) {
+        todo.completed = true;
+        completedButton.textContent = "Mark Incomplete";
+        title.textContent = todo.title + " - COMPLETED";
+        title.classList.add("completed-title");
+      } else {
+        todo.completed = false;
+        completedButton.textContent = "Mark Completed";
+        title.textContent = todo.title;
+        title.appendChild(priority);
+        title.classList.remove("completed-title");
+      }
+    }
+    container.appendChild(completedButton);
   });
 };
 

@@ -38,6 +38,7 @@ const activateCreateTodoForm = () => {
         modal.classList.toggle("show-modal");
       };
       toggleModal();
+      title.focus();
     } else {
       const todo = Todo(document.getElementById("todo-title").value,
                         document.getElementById("todo-description").value,
@@ -78,6 +79,7 @@ const activateEditTodoForm = () => {
         modal.classList.toggle("show-modal");
       };
       toggleModal();
+      title.focus();
     } else {
       todo.title = document.getElementById("todo-title").value,
       todo.description = document.getElementById("todo-description").value,

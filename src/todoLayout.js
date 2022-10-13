@@ -1,5 +1,6 @@
 import { activeProject } from './index.js';
 import { activateEditTodoForm, deleteTodo } from './todoBuilder.js';
+import { format } from 'date-fns';
 
 const clearTodoTitleDisplay = () => {
   const titles = document.querySelectorAll('.todo-title');
@@ -17,11 +18,11 @@ const displayTodoTitles = (project) => {
     title.classList.add("active-project-todo");
     title.classList.add("todo-title");
     const priority = document.createElement("div")
-    priority.textContent = todo.priority;
+    priority.textContent = "Priority: " + todo.priority;
     priority.classList.add("priority-indicator");
-    if (todo.priority === "high") {
+    if (todo.priority === "High") {
       priority.classList.add("high-priority-indicator");
-    } else if (todo.priority === "medium") {
+    } else if (todo.priority === "Medium") {
       priority.classList.add("medium-priority-indicator");
     } else {
       priority.classList.add("low-priority-indicator");
@@ -49,11 +50,21 @@ const clearTodo = () => {
   });
 }
 
+// toDate function adapted from https://stackoverflow.com/questions/7151543/convert-dd-mm-yyyy-string-to-date
+const toDate = (dateStr) => {
+  const [year, month, day] = dateStr.split("-")
+  return new Date(year, month - 1, day)
+}
+
 const displayTodo = (todo, index) => {
   const div = document.getElementById("todo-title-" + index);
   const todoAttributesDiv = document.createElement("div");
   todoAttributesDiv.classList.add("todo");
-  const todoAttributes = [todo.description, todo.dueDate, todo.notes];
+  const dueDate = document.createElement("div");
+  dueDate.textContent = "Due Date: " + format(toDate(todo.dueDate), "EEE',' MMM d',' yyyy");
+  dueDate.classList.add("todo");
+  todoAttributesDiv.appendChild(dueDate);
+  const todoAttributes = [todo.description, todo.notes];
   todoAttributes.forEach((todoAttribute) => {
     const attribute = document.createElement("div");
     attribute.textContent = todoAttribute;
@@ -83,10 +94,10 @@ const displayTodo = (todo, index) => {
     description.value = currentTodo.description;
     const dueDate = document.getElementById("todo-due-date");
     dueDate.value = currentTodo.dueDate;
-    if (currentTodo.priority === "high") {
+    if (currentTodo.priority === "High") {
       const highPriority = document.getElementById("high-priority");
       highPriority.checked = true;
-    } else if (currentTodo.priority === "medium") {
+    } else if (currentTodo.priority === "Medium") {
       const mediumPriority = document.getElementById("medium-priority");
       mediumPriority.checked = true;
     } else {

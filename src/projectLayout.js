@@ -56,7 +56,11 @@ const displayActiveProject = () => {
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-project-button");
   deleteButton.textContent = "Delete Project";
-  deleteButton.onclick = deleteProject;
+  deleteButton.onclick = () => {
+    if (confirm("Are you sure you want to delete this project?")) {
+      deleteProject();
+    }
+  }
   activeProjectDiv.appendChild(deleteButton);
 }
 

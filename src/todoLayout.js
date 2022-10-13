@@ -144,10 +144,12 @@ const displayTodo = (todo, index) => {
   deleteButton.classList.add("todo-" + index);
   deleteButton.textContent = "Delete todo";
   deleteButton.onclick = (e) => {
-    const hiddenField = document.getElementById("delete-todo-id");
-    hiddenField.value = currentTodo.id;
-    e.stopPropagation();
-    deleteTodo();
+    if (confirm("Are you sure you want to delete this todo?")) {
+      const hiddenField = document.getElementById("delete-todo-id");
+      hiddenField.value = currentTodo.id;
+      e.stopPropagation();
+      deleteTodo();
+    }
   };
   buttonsDiv.appendChild(deleteButton);
   div.append(todoAttributesDiv, buttonsDiv);

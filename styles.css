@@ -121,6 +121,10 @@ h3:hover {
   color: rgb(128, 255, 128);
 }
 
+.completed-title {
+  color: rgb(255, 128, 255);
+}
+
 .todo-attribute {
   background-color: #4d4730ff;
 }

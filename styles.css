@@ -86,6 +86,12 @@ h3:hover {
 
 .active-projects-todos {
   margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-and-button-container {
+  display: flex;
 }
 
 .active-project-todo {
@@ -95,8 +101,8 @@ h3:hover {
   justify-content: space-between;
   gap: 30px;
   margin: 30px 20px 0px;
-  padding: 5px;
-  max-width: 630px;
+  padding: 5px 10px;
+  width: 630px;
 }
 
 .priority-indicator {
@@ -115,7 +121,7 @@ h3:hover {
   color: rgb(128, 255, 128);
 }
 
-.todo {
+.todo-attribute {
   background-color: #4d4730ff;
 }
 
@@ -133,10 +139,15 @@ h3:hover {
   display: flex;
 }
 
+.todo-show-hide-button {
+  margin-top: 30px;
+}
+
 .new-todo-button {
   padding: 10px;
   margin: 20px;
   font-size: large;
+  width: 150px;
 }
 
 /* modal css from https://sabe.io/tutorials/how-to-create-modal-popup-box */

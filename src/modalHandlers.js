@@ -35,6 +35,7 @@ const projectModalHandlers = () => {
     let titleTextField = document.getElementById("project-title");
     titleTextField.value = "";
     toggleModal();
+    titleTextField.focus();
   });
   closeButton.addEventListener("click", toggleModal);
   createProjectButton.addEventListener("click", toggleModal);

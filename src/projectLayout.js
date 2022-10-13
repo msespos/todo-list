@@ -53,6 +53,8 @@ const displayActiveProject = () => {
     hiddenField.value = activeProject.index;
     activateEditProjectForm();
     toggleModal();
+    const title = document.getElementById("project-title");
+    title.focus();
   }
   activeProjectDiv.appendChild(editButton);
   const deleteButton = document.createElement("button");

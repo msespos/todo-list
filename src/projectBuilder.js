@@ -39,6 +39,7 @@ const activateCreateProjectForm = () => {
         modal.classList.toggle("show-modal");
       };
       toggleModal();
+      title.focus();
     } else {
       const project = Project(title.value, []);
       projects.push(project);
@@ -73,6 +74,7 @@ const activateEditProjectForm = () => {
         modal.classList.toggle("show-modal");
       };
       toggleModal();
+      title.focus();
     } else {
       project.title = title.value;
       projects[projectId] = project;

@@ -12,12 +12,24 @@ const clearTodoTitleDisplay = () => {
 const displayTodoTitles = (project) => {
   project.todos.forEach((todo, index) => {
     const div = document.querySelector(".active-projects-todos");
+    const container = document.createElement("div");
+    container.classList.add("todo-and-button-container");
+    div.appendChild(container);
     const title = document.createElement("div");
     title.id = "todo-title-" + index;
     title.textContent = todo.title;
     title.classList.add("active-project-todo");
     title.classList.add("todo-title");
-    const priority = document.createElement("div")
+    container.appendChild(title);
+    const toggleButton = document.createElement("button");
+    toggleButton.textContent = "Show/Hide Todo";
+    toggleButton.classList.add("todo-show-hide-button");
+    toggleButton.classList.add("todo-title");
+    toggleButton.onclick = () => {
+      toggleTodo(todo, index);
+    }
+    container.appendChild(toggleButton);
+    const priority = document.createElement("div");
     priority.textContent = "Priority: " + todo.priority;
     priority.classList.add("priority-indicator");
     if (todo.priority === "High") {
@@ -28,23 +40,19 @@ const displayTodoTitles = (project) => {
       priority.classList.add("low-priority-indicator");
     }
     title.appendChild(priority);
-    div.appendChild(title);
-    title.onclick = () => {
-      toggleTodo(todo, index);
-    }
   });
 };
 
 const toggleTodo = (todo, index) => {
-  if (document.querySelector(".todo")) {
-    clearTodo();
+  if (document.querySelector(".todo-" + index)) {
+    clearTodo(index);
   } else {
     displayTodo(todo, index);
   }
 };
 
-const clearTodo = () => {
-  const todoElements = document.querySelectorAll(".todo");
+const clearTodo = (index) => {
+  const todoElements = document.querySelectorAll(".todo-" + index);
   todoElements.forEach((todoElement) => {
     todoElement.remove();
   });
@@ -59,20 +67,22 @@ const toDate = (dateStr) => {
 const displayTodo = (todo, index) => {
   const div = document.getElementById("todo-title-" + index);
   const todoAttributesDiv = document.createElement("div");
-  todoAttributesDiv.classList.add("todo");
+  todoAttributesDiv.classList.add("todo-" + index);
   const dueDate = document.createElement("div");
   dueDate.textContent = "Due Date: " + format(toDate(todo.dueDate), "EEE',' MMM d',' yyyy");
-  dueDate.classList.add("todo");
+  dueDate.classList.add("todo-" + index);
+  dueDate.classList.add("todo-attribute");
   todoAttributesDiv.appendChild(dueDate);
   const todoAttributes = [todo.description, todo.notes];
   todoAttributes.forEach((todoAttribute) => {
     const attribute = document.createElement("div");
     attribute.textContent = todoAttribute;
-    attribute.classList.add("todo");
+    attribute.classList.add("todo-" + index);
+    attribute.classList.add("todo-attribute");
     todoAttributesDiv.appendChild(attribute);
   });
   const buttonsDiv = document.createElement("div");
-  buttonsDiv.classList.add("todo");
+  buttonsDiv.classList.add("todo-" + index);
   buttonsDiv.classList.add("todo-edit-and-delete-buttons");
   const editButton = document.createElement("button");
   editButton.id = "todo-edit-button";
@@ -80,7 +90,7 @@ const displayTodo = (todo, index) => {
   const toggleModal = () => {
     modal.classList.toggle("show-modal");
   };
-  editButton.classList.add("todo");
+  editButton.classList.add("todo-" + index);
   editButton.textContent = "Edit Todo";
   const currentTodo = activeProject.project.todos.find(e => e.id === todo.id);
   editButton.onclick = () => {
@@ -115,7 +125,7 @@ const displayTodo = (todo, index) => {
   buttonsDiv.appendChild(editButton);
   const deleteButton = document.createElement("button");
   deleteButton.id = "todo-delete-button";
-  deleteButton.classList.add("todo");
+  deleteButton.classList.add("todo-" + index);
   deleteButton.textContent = "Delete todo";
   deleteButton.onclick = (e) => {
     const hiddenField = document.getElementById("delete-todo-id");

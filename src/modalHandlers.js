@@ -32,6 +32,8 @@ const projectModalHandlers = () => {
     }
   }
   trigger.addEventListener("click", () => {
+    document.getElementById("create-project-button").style.display = "block";
+    document.getElementById("edit-project-button").style.display = "none";
     let titleTextField = document.getElementById("project-title");
     titleTextField.value = "";
     toggleModal();

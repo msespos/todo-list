@@ -45,31 +45,19 @@ const displayActiveProject = () => {
   editButton.classList.add("edit-project-button");
   editButton.textContent = "Edit Project Title";
   editButton.onclick = () => {
-    const createProjectButton = document.getElementById("create-project-button");
-    createProjectButton.style.display = "none";
-    const editProjectButton = document.getElementById("edit-project-button");
-    editProjectButton.style.display = "block";
-    const hiddenField = document.getElementById("edit-project-id");
-    hiddenField.value = activeProject.index;
+    document.getElementById("create-project-button").style.display = "none";
+    document.getElementById("edit-project-button").style.display = "block";
+    document.getElementById("edit-project-id").value = activeProject.index;
     activateEditProjectForm();
     toggleModal();
-    const title = document.getElementById("project-title");
-    title.focus();
+    document.getElementById("project-title").focus();
   }
   activeProjectDiv.appendChild(editButton);
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-project-button");
   deleteButton.textContent = "Delete Project";
-  deleteButton.onclick = () => {
-    const hiddenField = document.getElementById("delete-project-id");
-    hiddenField.value = activeProject.index;
-    deleteProject();
-  }
+  deleteButton.onclick = deleteProject;
   activeProjectDiv.appendChild(deleteButton);
-  const createProjectButton = document.getElementById("create-project-button");
-  createProjectButton.style.display = "block";
-  const editProjectButton = document.getElementById("edit-project-button");
-  editProjectButton.style.display = "none";
 }
 
 const displayNewTodoButton = () => {
@@ -83,22 +71,15 @@ const displayNewTodoButton = () => {
     modal.classList.toggle("show-modal");
   };
   trigger.onclick = () => {
-    const title = document.getElementById("todo-title");
-    title.value = "";
-    const description = document.getElementById("todo-description");
-    description.value = "";
-    const highPriority = document.getElementById("high-priority");
-    highPriority.checked = true;
-    const notes = document.getElementById("todo-notes");
-    notes.value = "";
-    const createTodoButton = document.getElementById("create-todo-button");
-    createTodoButton.style.display = "block";
-    const editTodoButton = document.getElementById("edit-todo-button");
-    editTodoButton.style.display = "none";
-    const hiddenField = document.getElementById("create-project-id");
-    hiddenField.value = activeProject.index;
+    document.getElementById("todo-title").value = "";
+    document.getElementById("todo-description").value = "";
+    document.getElementById("high-priority").checked = true;
+    document.getElementById("todo-notes").value = "";
+    document.getElementById("create-todo-button").style.display = "block";
+    document.getElementById("edit-todo-button").style.display = "none";
+    document.getElementById("create-project-id").value = activeProject.index;
     toggleModal();
-    title.focus();
+    document.getElementById("todo-title").focus();
   };
 };
 

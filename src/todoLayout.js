@@ -94,6 +94,7 @@ const displayTodo = (todo, index) => {
   const div = document.getElementById("todo-title-" + index);
   const todoAttributesDiv = document.createElement("div");
   todoAttributesDiv.classList.add("todo-" + index);
+  todoAttributesDiv.classList.add("todo-attribute");
   const dueDate = document.createElement("div");
   dueDate.textContent = "Due Date: " + format(toDate(todo.dueDate), "EEE',' MMM d',' yyyy");
   dueDate.classList.add("todo-" + index);
@@ -120,33 +121,22 @@ const displayTodo = (todo, index) => {
   editButton.textContent = "Edit Todo";
   const currentTodo = activeProject.project.todos.find(e => e.id === todo.id);
   editButton.onclick = () => {
-    const createTodoButton = document.getElementById("create-todo-button");
-    createTodoButton.style.display = "none";
-    const editTodoButton = document.getElementById("edit-todo-button");
-    editTodoButton.style.display = "block";
-    const title = document.getElementById("todo-title");
-    title.value = currentTodo.title;
-    const description = document.getElementById("todo-description");
-    description.value = currentTodo.description;
-    const dueDate = document.getElementById("todo-due-date");
-    dueDate.value = currentTodo.dueDate;
+    document.getElementById("create-todo-button").style.display = "none";
+    document.getElementById("edit-todo-button").style.display = "block";
+    document.getElementById("todo-title").value = currentTodo.title;
+    document.getElementById("todo-description").value = currentTodo.description;
+    document.getElementById("todo-due-date").value = currentTodo.dueDate;
     if (currentTodo.priority === "High") {
-      const highPriority = document.getElementById("high-priority");
-      highPriority.checked = true;
+      document.getElementById("high-priority").checked = true;
     } else if (currentTodo.priority === "Medium") {
-      const mediumPriority = document.getElementById("medium-priority");
-      mediumPriority.checked = true;
+      document.getElementById("medium-priority").checked = true;
     } else {
-      const lowPriority = document.getElementById("low-priority");
-      lowPriority.checked = true;
+      document.getElementById("low-priority").checked = true;
     }
-    const notes = document.getElementById("todo-notes");
-    notes.value = currentTodo.notes;
-    const hiddenField = document.getElementById("edit-todo-id");
-    hiddenField.value = currentTodo.id;
+    document.getElementById("todo-notes").value = currentTodo.notes;
     activateEditTodoForm();
     toggleModal();
-    title.focus();
+    document.getElementById("todo-title").focus();
   };
   buttonsDiv.appendChild(editButton);
   const deleteButton = document.createElement("button");

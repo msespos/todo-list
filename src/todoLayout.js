@@ -134,6 +134,7 @@ const displayTodo = (todo, index) => {
       document.getElementById("low-priority").checked = true;
     }
     document.getElementById("todo-notes").value = currentTodo.notes;
+    document.getElementById("edit-todo-id").value = currentTodo.id;
     activateEditTodoForm();
     toggleModal();
     document.getElementById("todo-title").focus();

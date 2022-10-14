@@ -21,13 +21,21 @@ let id = makeCounter();
 
 const activateCreateTodoForm = () => {
   const createTodoButton = document.getElementById("create-todo-button");
-  // code snippet below for disabling Enter key adapted from
+  // code snippets below for disabling Enter key adapted from
   // https://tutorial.eyehunts.com/js/disable-enter-key-on-an-input-field-in-javascript-example-code/
   const titleTextField = document.getElementById("todo-title");
   titleTextField.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
       event.preventDefault();
     }
+  });
+  const radioButtons = document.getElementsByName("todo-priority");
+  radioButtons.forEach((button) => {
+    button.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+      }
+    });
   });
   createTodoButton.onclick = () => {
     let title = document.getElementById("todo-title");

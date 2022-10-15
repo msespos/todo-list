@@ -57,6 +57,7 @@ const activateCreateTodoForm = () => {
       displayReset(projects);
       createTodoButton.blur();
     }
+    localStorage.setItem('projects', JSON.stringify(projects));
   };
 };
 
@@ -92,6 +93,7 @@ const activateEditTodoForm = () => {
       editTodoButton.blur();
       toggleTodo(todo, arrayIndexOfTodo);
     }
+    localStorage.setItem('projects', JSON.stringify(projects));
   };
 };
 
@@ -102,6 +104,7 @@ const deleteTodo = () => {
   const arrayIndexOfTodo = projects[projectId].todos.findIndex(e => e.id === todoId);
   projects[projectId].todos.splice(arrayIndexOfTodo, 1);
   displayReset(projects);
+  localStorage.setItem('projects', JSON.stringify(projects));
 };
 
 const getSelectedPriority = () => {

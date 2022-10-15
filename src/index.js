@@ -1,7 +1,7 @@
 import { todoModalHandlers, projectModalHandlers } from './modalHandlers';
 import { activateCreateTodoForm } from './todoBuilder';
 import { activateCreateProjectForm, createFirstProject,
-         refreshProjectDisplay, projects } from './projectBuilder';
+         refreshProjectDisplay, projects, activateClearAllButton } from './projectBuilder';
 import { setDateToToday } from './setDateToToday';
 
 setDateToToday();
@@ -17,5 +17,6 @@ todoModalHandlers();
 projectModalHandlers();
 activateCreateTodoForm();
 activateCreateProjectForm();
+activateClearAllButton();
 
 export { activeProject }

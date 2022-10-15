@@ -38,6 +38,13 @@ html, body {
   display: flex;
   justify-content: center;
   padding: 15px;
+  position: relative;
+}
+
+#clear-all-button {
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }
 
 h1 {

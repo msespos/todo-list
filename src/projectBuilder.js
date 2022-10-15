@@ -24,6 +24,16 @@ const refreshProjectDisplay = (projects) => {
   displayProjects(projects);
 };
 
+const activateClearAllButton = () => {
+  document.getElementById("clear-all-button").onclick = () => {
+    localStorage.clear();
+    projects = [];
+    activeProject.project = createFirstProject();
+    activeProject.index = 0;
+    refreshProjectDisplay(projects);
+  }
+}
+
 const activateCreateProjectForm = () => {
   const createProjectButton = document.getElementById("create-project-button");
   // code snippet below for disabling Enter key adapted from
@@ -95,4 +105,4 @@ const deleteProject = () => {
 };
 
 export { projects, createFirstProject, activateCreateProjectForm, refreshProjectDisplay,
-         activateEditProjectForm, deleteProject, activeProject }
+         activateEditProjectForm, deleteProject, activeProject, activateClearAllButton }

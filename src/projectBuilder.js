@@ -26,11 +26,13 @@ const refreshProjectDisplay = (projects) => {
 
 const activateClearAllButton = () => {
   document.getElementById("clear-all-button").onclick = () => {
-    localStorage.clear();
-    projects = [];
-    activeProject.project = createFirstProject();
-    activeProject.index = 0;
-    refreshProjectDisplay(projects);
+    if (confirm("Are you sure you want to clear all projects and todos?")) {
+      localStorage.clear();
+      projects = [];
+      activeProject.project = createFirstProject();
+      activeProject.index = 0;
+      refreshProjectDisplay(projects);
+    }
   }
 }
 

@@ -6,11 +6,12 @@ const Project = (title, todos) => {
   return { title, todos }
 };
 
-let projects = [];
+let projects = JSON.parse(localStorage.getItem('projects'));
 
 const createFirstProject = () => {
   const project = Project("Default Project", []);
   projects.push(project);
+  localStorage.setItem('projects', JSON.stringify(projects));
   return project;
 };
 
@@ -44,6 +45,7 @@ const activateCreateProjectForm = () => {
       refreshProjectDisplay(projects);
       createProjectButton.blur();
     }
+    localStorage.setItem('projects', JSON.stringify(projects));
   }
 };
 
@@ -73,6 +75,7 @@ const activateEditProjectForm = () => {
       refreshProjectDisplay(projects);
       editProjectButton.blur();
     }
+    localStorage.setItem('projects', JSON.stringify(projects));
   }
 };
 
@@ -85,6 +88,7 @@ const deleteProject = () => {
   activeProject.project = projects[0];
   activeProject.index = 0;
   refreshProjectDisplay(projects);
+  localStorage.setItem('projects', JSON.stringify(projects));
 };
 
 export { projects, createFirstProject, activateCreateProjectForm, refreshProjectDisplay,

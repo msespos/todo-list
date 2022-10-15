@@ -5,7 +5,14 @@ import { activateCreateProjectForm, createFirstProject,
 import { setDateToToday } from './setDateToToday';
 
 setDateToToday();
-let activeProject = { project: createFirstProject(), index: 0 };
+let activeProject = null;
+if (projects.length === 0) {
+  activeProject = { project: createFirstProject(), index: 0 };
+} else {
+  activeProject = { project: projects[0], index: 0};
+}
+console.log(activeProject);
+localStorage.setItem('projects', JSON.stringify(projects));
 refreshProjectDisplay(projects);
 todoModalHandlers();
 projectModalHandlers();

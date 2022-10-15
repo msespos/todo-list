@@ -54,12 +54,18 @@
           <label for="todo-due-date">Due date:</label>
           <input type="date" id="todo-due-date" name="due-date" max="2050-12-31"><br><br>
           Priority:<br>
-          <label for="high-priority">High</label>
-          <input type="radio" id="high-priority" name="todo-priority" value="High">
-          <label for="medium-priority">Medium</label>
-          <input type="radio" id="medium-priority" name="todo-priority" value="Medium">
-          <label for="low-priority">Low</label>
-          <input type="radio" id="low-priority" name="todo-priority" value="Low"><br><br>
+          <label>
+            <input type="radio" name="todo-priority" id="high-priority" value="High"/>
+            High
+          </label>
+          <label>
+            <input type="radio" name="todo-priority" id="medium-priority" value="Medium"/>
+            Medium
+          </label>
+          <label>
+            <input type="radio" name="todo-priority" id="low-priority" value="Low"/>
+            Low
+          </label><br><br>
           <label for="todo-notes">Notes:</label><br>
           <textarea id="todo-notes" name="notes" rows="8" cols="50"></textarea><br><br>
           <input type="button" class="button" id="create-todo-button" value="Create Todo">

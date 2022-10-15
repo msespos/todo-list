@@ -11,10 +11,16 @@ const todoModalHandlers = () => {
       toggleModal();
     }
   }
+  const closeOnEscape = (event) => {
+    if (event.key === "Escape") {
+      toggleModal();
+    }
+  }
   closeButton.addEventListener("click", toggleModal);
   createTodoButton.addEventListener("click", toggleModal);
   editTodoButton.addEventListener("click", toggleModal);
   window.addEventListener("click", windowOnClick);
+  modal.addEventListener("keydown", closeOnEscape);
 }
 
 const projectModalHandlers = () => {
@@ -31,6 +37,11 @@ const projectModalHandlers = () => {
       toggleModal();
     }
   }
+  const closeOnEscape = (event) => {
+    if (event.key === "Escape") {
+      toggleModal();
+    }
+  }
   trigger.addEventListener("click", () => {
     document.getElementById("create-project-button").style.display = "block";
     document.getElementById("edit-project-button").style.display = "none";
@@ -43,6 +54,7 @@ const projectModalHandlers = () => {
   createProjectButton.addEventListener("click", toggleModal);
   editProjectButton.addEventListener("click", toggleModal);
   window.addEventListener("click", windowOnClick);
+  modal.addEventListener("keydown", closeOnEscape);
 }
 
 export { todoModalHandlers, projectModalHandlers }

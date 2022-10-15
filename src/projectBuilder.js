@@ -7,6 +7,9 @@ const Project = (title, todos) => {
 };
 
 let projects = JSON.parse(localStorage.getItem('projects'));
+if (projects === null) {
+  projects = [];
+}
 
 const createFirstProject = () => {
   const project = Project("Default Project", []);

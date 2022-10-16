@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 import { activeProject } from './index.js';
 import { activateEditTodoForm, deleteTodo } from './todoBuilder.js';
+import { projects } from './projectBuilder.js'
 
 const clearTodoTitleDisplay = () => {
   const titles = document.querySelectorAll('.todo-title');
@@ -64,6 +65,7 @@ const displayTodoTitles = (project) => {
         title.appendChild(priority);
         title.classList.remove('completed-title');
       }
+      localStorage.setItem('projects', JSON.stringify(projects));
     };
     container.appendChild(completedButton);
   });

@@ -145,7 +145,7 @@ const displayTodo = (todo, index) => {
   const deleteButton = document.createElement('button');
   deleteButton.id = 'todo-delete-button';
   deleteButton.classList.add(`todo-${index}`);
-  deleteButton.textContent = 'Delete todo';
+  deleteButton.textContent = 'Delete Todo';
   deleteButton.onclick = (e) => {
     if (confirm('Are you sure you want to delete this todo?')) {
       const hiddenField = document.getElementById('delete-todo-id');

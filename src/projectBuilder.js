@@ -2,9 +2,7 @@ import { clearProjectDisplay, displayProjects } from './projectLayout';
 import { clearTodoTitleDisplay } from './todoLayout';
 import { activeProject } from './index.js';
 
-const Project = (title, todos) => {
-  return { title, todos }
-};
+const Project = (title, todos) => ({ title, todos });
 
 let projects = JSON.parse(localStorage.getItem('projects'));
 if (projects === null) {
@@ -12,7 +10,7 @@ if (projects === null) {
 }
 
 const createFirstProject = () => {
-  const project = Project("Default Project", []);
+  const project = Project('Default Project', []);
   projects.push(project);
   localStorage.setItem('projects', JSON.stringify(projects));
   return project;
@@ -25,64 +23,64 @@ const refreshProjectDisplay = (projects) => {
 };
 
 const activateClearAllButton = () => {
-  document.getElementById("clear-all-button").onclick = () => {
-    if (confirm("Are you sure you want to clear all projects and todos?")) {
+  document.getElementById('clear-all-button').onclick = () => {
+    if (confirm('Are you sure you want to clear all projects and todos?')) {
       localStorage.clear();
       projects = [];
       activeProject.project = createFirstProject();
       activeProject.index = 0;
       refreshProjectDisplay(projects);
     }
-  }
-}
+  };
+};
 
 const activateCreateProjectForm = () => {
-  const createProjectButton = document.getElementById("create-project-button");
+  const createProjectButton = document.getElementById('create-project-button');
   // code snippet below for disabling Enter key adapted from
   // https://tutorial.eyehunts.com/js/disable-enter-key-on-an-input-field-in-javascript-example-code/
-  const titleTextField = document.getElementById("project-title");
-  titleTextField.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
+  const titleTextField = document.getElementById('project-title');
+  titleTextField.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
       event.preventDefault();
     }
   });
   createProjectButton.onclick = () => {
-    let title = document.getElementById("project-title");
-    if (title.value === "") {
-      alert("You need a title! Please try again.");
-      document.querySelector(".project-modal").classList.toggle("show-modal");
+    const title = document.getElementById('project-title');
+    if (title.value === '') {
+      alert('You need a title! Please try again.');
+      document.querySelector('.project-modal').classList.toggle('show-modal');
       title.focus();
     } else {
       const project = Project(title.value, []);
       projects.push(project);
       activeProject.project = project;
-      activeProject.index = projects.findIndex(e => e === project);
+      activeProject.index = projects.findIndex((e) => e === project);
       refreshProjectDisplay(projects);
       createProjectButton.blur();
     }
     localStorage.setItem('projects', JSON.stringify(projects));
-  }
+  };
 };
 
 const activateEditProjectForm = () => {
-  const projectHiddenField = document.getElementById("edit-project-id");
+  const projectHiddenField = document.getElementById('edit-project-id');
   const projectId = parseInt(projectHiddenField.value);
   const project = projects[projectId];
-  const editProjectButton = document.getElementById("edit-project-button");
+  const editProjectButton = document.getElementById('edit-project-button');
   // code snippet below for disabling Enter key adapted from
   // https://tutorial.eyehunts.com/js/disable-enter-key-on-an-input-field-in-javascript-example-code/
-  const titleTextField = document.getElementById("project-title");
+  const titleTextField = document.getElementById('project-title');
   titleTextField.value = activeProject.project.title;
-  titleTextField.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
+  titleTextField.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
       event.preventDefault();
     }
   });
   editProjectButton.onclick = () => {
-    let title = document.getElementById("project-title");
-    if (title.value === "") {
-      alert("You need a new title! Please try again.");
-      document.querySelector(".project-modal").classList.toggle("show-modal");
+    const title = document.getElementById('project-title');
+    if (title.value === '') {
+      alert('You need a new title! Please try again.');
+      document.querySelector('.project-modal').classList.toggle('show-modal');
       title.focus();
     } else {
       project.title = title.value;
@@ -91,7 +89,7 @@ const activateEditProjectForm = () => {
       editProjectButton.blur();
     }
     localStorage.setItem('projects', JSON.stringify(projects));
-  }
+  };
 };
 
 const deleteProject = () => {
@@ -106,5 +104,7 @@ const deleteProject = () => {
   localStorage.setItem('projects', JSON.stringify(projects));
 };
 
-export { projects, createFirstProject, activateCreateProjectForm, refreshProjectDisplay,
-         activateEditProjectForm, deleteProject, activeProject, activateClearAllButton }
+export {
+  projects, createFirstProject, activateCreateProjectForm, refreshProjectDisplay,
+  activateEditProjectForm, deleteProject, activeProject, activateClearAllButton,
+};

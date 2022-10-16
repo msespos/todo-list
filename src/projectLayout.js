@@ -77,7 +77,7 @@ const displayNewTodoButton = () => {
   trigger.onclick = () => {
     document.getElementById('todo-title').value = '';
     document.getElementById('todo-description').value = '';
-    document.getElementById('high-priority').checked = true;
+    document.getElementById('medium-priority').checked = true;
     document.getElementById('todo-notes').value = '';
     document.getElementById('create-todo-button').style.display = 'block';
     document.getElementById('edit-todo-button').style.display = 'none';
